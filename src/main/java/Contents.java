@@ -1,7 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Contents extends JFrame {
+public class Contents extends JFrame implements ActionListener {
+    JPanel cardPanel;
+    CardLayout layout;
+
     public static void main(String[] args) {
         Contents frame = new Contents();
         frame.setTitle("ヒット&ブロー");
@@ -35,6 +39,9 @@ public class Contents extends JFrame {
         button_a2.setAlignmentX(Component.CENTER_ALIGNMENT);
         button_a3.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        button_a2.addActionListener(this);
+        button_a2.setActionCommand("panel_b");
+
         panel_a.add(Box.createGlue());
         panel_a.add(label_a1);
         panel_a.add(Box.createGlue());
@@ -49,47 +56,66 @@ public class Contents extends JFrame {
         Container contentPane01 = getContentPane();
         contentPane01.add(panel_a, BorderLayout.CENTER);
 
-//        //panel_b
-//        JPanel panel_b = new JPanel();
-//        panel_b.setLayout(new BoxLayout(panel_b, BoxLayout.Y_AXIS));
-//
-//        JLabel label_b1 = new JLabel("""
-//                <html><body>ヒット&ブローはプログラム側がランダムで設定した数字を当てるゲームです。<br/>
-//                <br/>
-//                このプログラムでは被り無しの0～9の数字が3桁設定されます。<br/>
-//                ユーザー側が3桁の数字を入力し、<br/>
-//                その数字と正解の数字を比較して次のヒントが表示されます。<br/>
-//                <br/>
-//                ヒット:桁の位置も数字も合っている数字の数です。<br/>
-//                ブロー:数字は合っているが、桁の位置が違う数字の数です。<br/>
-//                <br/>
-//                例:正解が[083]入力が[385]の時、<br/>
-//                　 8は桁の位置も数字も合っている為ヒット、<br/>
-//                　 3は桁の位置が違うが数字は合っている為ブローとなり、<br/>
-//                　 ヒットとブローの数がそれぞれ1つずつの為、ヒット:1 ブロー:1と表示されます。<br/>
-//                <br/>
-//                その後、再度数字の入力から繰り返し、3桁全部の数字を当てた場合はゲームクリアです。<br/>
-//                少ない回数でのクリアを目指してください。<br/>
-//                <br/>
-//                10回目の入力までに正解の数字を見つけられないとゲームオーバーになります。<br/>
-//                また、数値入力時にGを入力するとギブアップとしてゲームを終了する事が出来ます。<br/>
-//                <br/></body></html>
-//                """);
-//        JButton button_b1 = new JButton("戻る");
-//
-//        label_b1.setFont(new Font("ＭＳ ゴシック", Font.BOLD, 18));
-//        button_b1.setFont(new Font("ＭＳ ゴシック", Font.BOLD, 30));
-//
-//        label_b1.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        button_b1.setAlignmentX(Component.RIGHT_ALIGNMENT);
-//
-//        panel_b.add(Box.createGlue());
-//        panel_b.add(label_b1);
-//        panel_b.add(Box.createGlue());
-//        panel_b.add(button_b1);
-//        panel_b.add(Box.createGlue());
-//
-//        Container contentPane02 = getContentPane();
-//        contentPane02.add(panel_b, BorderLayout.CENTER);
+        //panel_b
+        JPanel panel_b = new JPanel();
+        panel_b.setLayout(new BoxLayout(panel_b, BoxLayout.Y_AXIS));
+
+        JLabel label_b1 = new JLabel("""
+                <html><body>ヒット&ブローはプログラム側がランダムで設定した数字を当てるゲームです。<br/>
+                <br/>
+                このプログラムでは被り無しの0～9の数字が3桁設定されます。<br/>
+                ユーザー側が3桁の数字を入力し、<br/>
+                その数字と正解の数字を比較して次のヒントが表示されます。<br/>
+                <br/>
+                ヒット:桁の位置も数字も合っている数字の数です。<br/>
+                ブロー:数字は合っているが、桁の位置が違う数字の数です。<br/>
+                <br/>
+                例:正解が[083]入力が[385]の時、<br/>
+                　 8は桁の位置も数字も合っている為ヒット、<br/>
+                　 3は桁の位置が違うが数字は合っている為ブローとなり、<br/>
+                　 ヒットとブローの数がそれぞれ1つずつの為、ヒット:1 ブロー:1と表示されます。<br/>
+                <br/>
+                その後、再度数字の入力から繰り返し、3桁全部の数字を当てた場合はゲームクリアです。<br/>
+                少ない回数でのクリアを目指してください。<br/>
+                <br/>
+                10回目の入力までに正解の数字を見つけられないとゲームオーバーになります。<br/>
+                また、数値入力時にGを入力するとギブアップとしてゲームを終了する事が出来ます。<br/>
+                <br/></body></html>
+                """);
+        JButton button_b1 = new JButton("戻る");
+
+        label_b1.setFont(new Font("ＭＳ ゴシック", Font.BOLD, 18));
+        button_b1.setFont(new Font("ＭＳ ゴシック", Font.BOLD, 30));
+
+        label_b1.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button_b1.setAlignmentX(Component.RIGHT_ALIGNMENT);
+
+        button_b1.addActionListener(this);
+        button_b1.setActionCommand("panel_a");
+
+        panel_b.add(Box.createGlue());
+        panel_b.add(label_b1);
+        panel_b.add(Box.createGlue());
+        panel_b.add(button_b1);
+        panel_b.add(Box.createGlue());
+
+        Container contentPane02 = getContentPane();
+        contentPane02.add(panel_b, BorderLayout.CENTER);
+
+
+        cardPanel = new JPanel();
+        layout = new CardLayout();
+        cardPanel.setLayout(layout);
+
+        cardPanel.add(panel_a, "panel_a");
+        cardPanel.add(panel_b, "panel_b");
+
+        getContentPane().add(cardPanel, BorderLayout.CENTER);
+    }
+
+    public void actionPerformed(ActionEvent e){
+        String cmd = e.getActionCommand();
+
+        layout.show(cardPanel, cmd);
     }
 }
