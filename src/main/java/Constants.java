@@ -6,7 +6,7 @@ public class Constants {
     public static final String DISPLAY_BUTTON_GAME_END = "ゲーム終了";
     public static final String DISPLAY_BUTTON_GAME_CLEAR = "ゲームクリア画面";
     public static final String DISPLAY_TEXT_RULE_DESCRIPTION = """
-            <html><body>ヒット&ブローはプログラム側がランダムで設定した数字を当てるゲームです。<br/>
+            <html>ヒット&ブローはプログラム側がランダムで設定した数字を当てるゲームです。<br/>
             <br/>
             このプログラムでは被り無しの0～9の数字が3桁設定されます。<br/>
             ユーザー側が3桁の数字を入力し、<br/>
@@ -25,7 +25,7 @@ public class Constants {
             <br/>
             10回目の入力までに正解の数字を見つけられないとゲームオーバーになります。<br/>
             また、数値入力時にGを入力するとギブアップとしてゲームを終了する事が出来ます。<br/>
-            <br/></body></html>
+            <br/></html>
             """;
     public static final String DISPLAY_BUTTON_BACK_TO_TITLE = "タイトルに戻る";
     public static final String DISPLAY_TEXT_GAME_CLEAR_RESULT = """
@@ -36,11 +36,11 @@ public class Constants {
             入力回数:%d回<br/></center></html>
             """;
     public static final String DISPLAY_TEXT_GAME_OVER_RESULT = """
-            <html><body>ゲームクリア！<br/>
+            <html><center>ゲームクリア！<br/>
             <br/>
             正解の数字は%sでした！<br/>
             <br/>
-            入力回数:%d回<br/></body></html>
+            入力回数:%d回<br/><center></html>
             """;
     public static final String FONT_MS_GOTHIC = "ＭＳ ゴシック";
     public static final String CARD_TITLE_SCREEN = "CardTitleScreen";
