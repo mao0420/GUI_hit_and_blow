@@ -29,11 +29,11 @@ public class Constants {
             """;
     public static final String DISPLAY_BUTTON_BACK_TO_TITLE = "タイトルに戻る";
     public static final String DISPLAY_TEXT_GAME_CLEAR_RESULT = """
-            <html><body><center>ゲームクリア！<br/>
+            <html><center>ゲームクリア！<br/>
             <br/>
             正解の数字は%sでした！<br/>
             <br/>
-            入力回数:%d回<br/></center></body></html>
+            入力回数:%d回<br/></center></html>
             """;
     public static final String DISPLAY_TEXT_GAME_OVER_RESULT = """
             <html><body>ゲームクリア！<br/>
