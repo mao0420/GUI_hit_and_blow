@@ -6,6 +6,18 @@ public class Constants {
     public static final String DISPLAY_BUTTON_GAME_END = "ゲーム終了";
     public static final String DISPLAY_BUTTON_GAME_CLEAR = "ゲームクリア画面";
     public static final String DISPLAY_BUTTON_GAME_OVER = "ゲームオーバー画面";
+    public static final String DISPLAY_BUTTON_ZERO = "0";
+    public static final String DISPLAY_BUTTON_ONE = "1";
+    public static final String DISPLAY_BUTTON_TWO = "2";
+    public static final String DISPLAY_BUTTON_THREE = "3";
+    public static final String DISPLAY_BUTTON_FOUR = "4";
+    public static final String DISPLAY_BUTTON_FIVE = "5";
+    public static final String DISPLAY_BUTTON_SIX = "6";
+    public static final String DISPLAY_BUTTON_SEVEN = "7";
+    public static final String DISPLAY_BUTTON_EIGHT = "8";
+    public static final String DISPLAY_BUTTON_NINE = "9";
+    public static final String DISPLAY_BUTTON_RESET = "リセット";
+    public static final String DISPLAY_BUTTON_CONFIRM = "確定";
     public static final String DISPLAY_TEXT_RULE_DESCRIPTION = """
             <html>ヒット&ブローはプログラム側がランダムで設定した数字を当てるゲームです。<br/>
             <br/>
@@ -44,6 +56,8 @@ public class Constants {
     public static final String FONT_MS_GOTHIC = "ＭＳ ゴシック";
     public static final String CARD_TITLE_SCREEN = "CardTitleScreen";
     public static final String CARD_RULE_DESCRIPTION = "CardRuleDescription";
+    public static final String CARD_GAME_SCREEN = "CardGameScreen";
     public static final String CARD_GAME_CLEAR = "CardGameClear";
     public static final String CARD_GAME_OVER = "CardGameOver";
+    public static final String BUTTON_GAME_END = "ButtonTitleScreenGameEnd";
 }

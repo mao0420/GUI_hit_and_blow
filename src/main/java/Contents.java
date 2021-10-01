@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+
 public class Contents extends JFrame implements ActionListener {
     JPanel cardPanel;
     CardLayout layout;
@@ -39,8 +40,12 @@ public class Contents extends JFrame implements ActionListener {
         ButtonTitleScreenRuleDescription.setAlignmentX(Component.CENTER_ALIGNMENT);
         ButtonTitleScreenGameEnd.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        ButtonTitleScreenGameStart.addActionListener(this);
+        ButtonTitleScreenGameStart.setActionCommand(Constants.CARD_GAME_SCREEN);
         ButtonTitleScreenRuleDescription.addActionListener(this);
         ButtonTitleScreenRuleDescription.setActionCommand(Constants.CARD_RULE_DESCRIPTION);
+        ButtonTitleScreenGameEnd.addActionListener(this);
+        ButtonTitleScreenGameEnd.setActionCommand(Constants.BUTTON_GAME_END);
 
         //ゲームクリア画面デバッグ用
         JButton ButtonTitleScreenGameClear = new JButton(Constants.DISPLAY_BUTTON_GAME_CLEAR);
@@ -76,6 +81,29 @@ public class Contents extends JFrame implements ActionListener {
         Container contentPane01 = getContentPane();
         contentPane01.add(CardTitleScreen, BorderLayout.CENTER);
 
+        //ゲーム画面カード
+        JPanel CardGameScreen = new JPanel();
+        CardGameScreen.setLayout(new GridBagLayout());
+        CardGameScreen.setLayout(layout);
+
+//        GridBagConstraints PositionPreference = new GridBagConstraints();
+//
+//        JButton ButtonGameScreenOne = new JButton(Constants.DISPLAY_BUTTON_ONE);
+//
+//        ButtonGameScreenOne.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 12));
+//
+//        PositionPreference.gridx = 5;
+//        PositionPreference.gridy = 5;
+//        layout.setConstraints(ButtonGameScreenOne, PositionPreference);
+//
+//        CardGameScreen.add(Box.createGlue());
+//        CardGameScreen.add(Box.createGlue());
+//        CardGameScreen.add(ButtonGameScreenOne);
+//        CardGameScreen.add(Box.createGlue());
+
+        Container contentPane02 = getContentPane();
+        contentPane02.add(CardGameScreen, BorderLayout.CENTER);
+
         //ルール説明画面カード
         JPanel CardRuleDescription = new JPanel();
         CardRuleDescription.setLayout(new BoxLayout(CardRuleDescription, BoxLayout.Y_AXIS));
@@ -98,8 +126,8 @@ public class Contents extends JFrame implements ActionListener {
         CardRuleDescription.add(ButtonRuleDescriptionBack);
         CardRuleDescription.add(Box.createGlue());
 
-        Container contentPane02 = getContentPane();
-        contentPane02.add(CardRuleDescription, BorderLayout.CENTER);
+        Container contentPane03 = getContentPane();
+        contentPane03.add(CardRuleDescription, BorderLayout.CENTER);
 
         //ゲームクリア画面カード
         JPanel CardGameClear = new JPanel();
@@ -159,6 +187,7 @@ public class Contents extends JFrame implements ActionListener {
         cardPanel.setLayout(layout);
 
         cardPanel.add(CardTitleScreen, Constants.CARD_TITLE_SCREEN);
+        cardPanel.add(CardGameScreen, Constants.CARD_GAME_SCREEN);
         cardPanel.add(CardRuleDescription, Constants.CARD_RULE_DESCRIPTION);
         cardPanel.add(CardGameClear, Constants.CARD_GAME_CLEAR);
         cardPanel.add(CardGameOver, Constants.CARD_GAME_OVER);
@@ -168,6 +197,12 @@ public class Contents extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
-        layout.show(cardPanel, cmd);
+        if(cmd.equals(Constants.BUTTON_GAME_END)){
+            Component c = (Component)e.getSource();
+            Window w = SwingUtilities.getWindowAncestor(c);
+            w.dispose();
+        }else {
+            layout.show(cardPanel, cmd);
+        }
     }
 }
