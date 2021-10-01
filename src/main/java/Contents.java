@@ -50,6 +50,14 @@ public class Contents extends JFrame implements ActionListener {
         ButtonTitleScreenGameClear.addActionListener(this);
         ButtonTitleScreenGameClear.setActionCommand(Constants.CARD_GAME_CLEAR);
 
+        //ゲームオーバー画面デバッグ用
+        JButton ButtonTitleScreenGameOver = new JButton(Constants.DISPLAY_BUTTON_GAME_OVER);
+        ButtonTitleScreenGameOver.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
+        ButtonTitleScreenGameOver.setPreferredSize(new Dimension(300, 50));
+        ButtonTitleScreenGameOver.setAlignmentX(Component.CENTER_ALIGNMENT);
+        ButtonTitleScreenGameOver.addActionListener(this);
+        ButtonTitleScreenGameOver.setActionCommand(Constants.CARD_GAME_OVER);
+
         CardTitleScreen.add(Box.createGlue());
         CardTitleScreen.add(LabelTitleScreenTitle);
         CardTitleScreen.add(Box.createGlue());
@@ -62,6 +70,8 @@ public class Contents extends JFrame implements ActionListener {
         CardTitleScreen.add(Box.createGlue());
         //ゲームクリア画面デバッグ用
         CardTitleScreen.add(ButtonTitleScreenGameClear);
+        //ゲームオーバー画面デバッグ用
+        CardTitleScreen.add(ButtonTitleScreenGameOver);
 
         Container contentPane01 = getContentPane();
         contentPane01.add(CardTitleScreen, BorderLayout.CENTER);
@@ -117,6 +127,32 @@ public class Contents extends JFrame implements ActionListener {
         Container contentPane04 = getContentPane();
         contentPane04.add(CardGameClear, BorderLayout.CENTER);
 
+        //ゲームオーバー画面カード
+        JPanel CardGameOver = new JPanel();
+        CardGameOver.setLayout(new BoxLayout(CardGameOver, BoxLayout.Y_AXIS));
+
+        JLabel LabelGameOverResult = new JLabel(Constants.DISPLAY_TEXT_GAME_OVER_RESULT);
+        JButton ButtonGameOverBackToTitle = new JButton(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
+
+        LabelGameOverResult.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 30));
+        ButtonGameOverBackToTitle.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 30));
+
+        LabelGameOverResult.setAlignmentX(CENTER_ALIGNMENT);
+        LabelGameOverResult.setHorizontalAlignment(JLabel.CENTER);
+        ButtonGameOverBackToTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        ButtonGameOverBackToTitle.addActionListener(this);
+        ButtonGameOverBackToTitle.setActionCommand(Constants.CARD_TITLE_SCREEN);
+
+        CardGameOver.add(Box.createGlue());
+        CardGameOver.add(LabelGameOverResult);
+        CardGameOver.add(Box.createGlue());
+        CardGameOver.add(ButtonGameOverBackToTitle);
+        CardGameOver.add(Box.createGlue());
+
+        Container contentPane05 = getContentPane();
+        contentPane05.add(CardGameOver, BorderLayout.CENTER);
+
         //カード設定
         cardPanel = new JPanel();
         layout = new CardLayout();
@@ -125,6 +161,7 @@ public class Contents extends JFrame implements ActionListener {
         cardPanel.add(CardTitleScreen, Constants.CARD_TITLE_SCREEN);
         cardPanel.add(CardRuleDescription, Constants.CARD_RULE_DESCRIPTION);
         cardPanel.add(CardGameClear, Constants.CARD_GAME_CLEAR);
+        cardPanel.add(CardGameOver, Constants.CARD_GAME_OVER);
 
         getContentPane().add(cardPanel, BorderLayout.CENTER);
     }
