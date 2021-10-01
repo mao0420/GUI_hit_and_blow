@@ -39,7 +39,7 @@ public class Constants {
     public static final String DISPLAY_TEXT_GAME_OVER_RESULT = """
             <html><body align=center>ゲームオーバー！<br/>
             <br/><br/>
-            入力回数:%d回<br/><br/></body align=center></html>
+            正解の数字は%sでした！<br/><br/></body align=center></html>
             """;
     public static final String FONT_MS_GOTHIC = "ＭＳ ゴシック";
     public static final String CARD_TITLE_SCREEN = "CardTitleScreen";
