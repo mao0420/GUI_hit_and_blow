@@ -25,13 +25,13 @@ public class Constants {
     public static final String DISPLAY_BUTTON_GIVE_UP = "ギブアップ";
     public static final String DISPLAY_TEXT_INPUT_TIMES = "%d回目";
     public static final int SIZE_TEXT_INPUT_HISTORY_MESSAGE = 24;
-    public static final int SIZE_TEXT_INPUT_HISTORY_DESCRIPTION = 20;
+    public static final int SIZE_TEXT_INPUT_HISTORY_DESCRIPTION = 18;
     public static final int SIZE_TEXT_INPUT_HISTORY_NUMBER = 20;
     public static final int SIZE_TEXT_DISPLAY_NUMBER = 28;
     public static final int SIZE_NUMBER_BUTTON_NUMBER = 24;
     public static final int SIZE_NUMBER_BUTTON_RESET = 12;
     public static final int SIZE_NUMBER_BUTTON_CONFIRM = 16;
-    public static final int SIZE_NUMBER_BUTTON_GIVE_UP = 8;
+    public static final int SIZE_NUMBER_BUTTON_GIVE_UP = 10;
     public static final int SIZE_TEXT_INPUT_TIMES = 16;
     public static final int SIZE_NUMBER_BUTTON_WIDTH = 90;
     public static final int SIZE_NUMBER_BUTTON_HEIGHT = 50;

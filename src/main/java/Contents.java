@@ -119,6 +119,9 @@ public class Contents extends JFrame implements ActionListener {
         JButton buttonGameScreenConfirm = new JButton(Constants.DISPLAY_BUTTON_CONFIRM);
         JButton buttonGameScreenGiveUp = new JButton(Constants.DISPLAY_BUTTON_GIVE_UP);
         JLabel labelGameScreenInputTimes = new JLabel(Constants.DISPLAY_TEXT_INPUT_TIMES);
+        JLabel labelGameScreenInputSpaceLeft = new JLabel("");
+        JLabel labelGameScreenInputSpaceRight = new JLabel("");
+        JLabel labelGameScreenInputSpaceCenter = new JLabel("");
 
         labelGameScreenOneDigits.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_DISPLAY_NUMBER));
         labelGameScreenTwoDigits.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_DISPLAY_NUMBER));
@@ -166,15 +169,15 @@ public class Contents extends JFrame implements ActionListener {
         buttonGameScreenConfirm.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
         buttonGameScreenGiveUp.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
 
-        positionPreference.gridx = 5;
+        positionPreference.gridx = 3;
         positionPreference.gridy = 2;
         gbLayout.setConstraints(labelGameScreenOneDigits, positionPreference);
 
-        positionPreference.gridx = 6;
+        positionPreference.gridx = 4;
         positionPreference.gridy = 2;
         gbLayout.setConstraints(labelGameScreenTwoDigits, positionPreference);
 
-        positionPreference.gridx = 7;
+        positionPreference.gridx = 5;
         positionPreference.gridy = 2;
         gbLayout.setConstraints(labelGameScreenThreeDigits, positionPreference);
 
@@ -182,113 +185,140 @@ public class Contents extends JFrame implements ActionListener {
         positionPreference.gridy = 1;
         gbLayout.setConstraints(labelGameScreenInputHistoryMessageLeft, positionPreference);
 
-        positionPreference.gridx = 11;
+        positionPreference.gridx = 7;
         positionPreference.gridy = 1;
         gbLayout.setConstraints(labelGameScreenInputHistoryMessageRight, positionPreference);
 
         positionPreference.gridx = 1;
         positionPreference.gridy = 2;
+        positionPreference.insets = new Insets(3, 10, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryDescriptionLeft, positionPreference);
 
-        positionPreference.gridx = 11;
+        positionPreference.gridx = 7;
         positionPreference.gridy = 2;
+        positionPreference.insets = new Insets(3, 3, 3, 10);
         gbLayout.setConstraints(labelGameScreenInputHistoryDescriptionRight, positionPreference);
 
         positionPreference.gridx = 1;
         positionPreference.gridy = 3;
+        positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberOne, positionPreference);
 
         positionPreference.gridx = 1;
         positionPreference.gridy = 4;
+        positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberTwo, positionPreference);
 
         positionPreference.gridx = 1;
         positionPreference.gridy = 5;
+        positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberThree, positionPreference);
 
         positionPreference.gridx = 1;
         positionPreference.gridy = 6;
+        positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberFour, positionPreference);
 
         positionPreference.gridx = 1;
         positionPreference.gridy = 7;
+        positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberFive, positionPreference);
 
-        positionPreference.gridx = 11;
+        positionPreference.gridx = 7;
         positionPreference.gridy = 3;
+        positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberSix, positionPreference);
 
-        positionPreference.gridx = 11;
+        positionPreference.gridx = 7;
         positionPreference.gridy = 4;
+        positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberSeven, positionPreference);
 
-        positionPreference.gridx = 11;
+        positionPreference.gridx = 7;
         positionPreference.gridy = 5;
+        positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberEight, positionPreference);
 
-        positionPreference.gridx = 11;
+        positionPreference.gridx = 7;
         positionPreference.gridy = 6;
+        positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberNine, positionPreference);
 
-        positionPreference.gridx = 11;
+        positionPreference.gridx = 7;
         positionPreference.gridy = 7;
+        positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberTen, positionPreference);
 
-        positionPreference.gridx = 5;
-        positionPreference.gridy = 7;
+        positionPreference.gridx = 3;
+        positionPreference.gridy = 9;
         gbLayout.setConstraints(buttonGameScreenOne, positionPreference);
 
-        positionPreference.gridx = 6;
-        positionPreference.gridy = 7;
+        positionPreference.gridx = 4;
+        positionPreference.gridy = 9;
         gbLayout.setConstraints(buttonGameScreenTwo, positionPreference);
 
-        positionPreference.gridx = 7;
-        positionPreference.gridy = 7;
+        positionPreference.gridx = 5;
+        positionPreference.gridy = 9;
         gbLayout.setConstraints(buttonGameScreenThree, positionPreference);
 
-        positionPreference.gridx = 5;
-        positionPreference.gridy = 8;
+        positionPreference.gridx = 3;
+        positionPreference.gridy = 10;
         gbLayout.setConstraints(buttonGameScreenFour, positionPreference);
 
-        positionPreference.gridx = 6;
-        positionPreference.gridy = 8;
+        positionPreference.gridx = 4;
+        positionPreference.gridy = 10;
         gbLayout.setConstraints(buttonGameScreenFive, positionPreference);
 
-        positionPreference.gridx = 7;
-        positionPreference.gridy = 8;
+        positionPreference.gridx = 5;
+        positionPreference.gridy = 10;
         gbLayout.setConstraints(buttonGameScreenSix, positionPreference);
 
-        positionPreference.gridx = 5;
-        positionPreference.gridy = 9;
+        positionPreference.gridx = 3;
+        positionPreference.gridy = 11;
         gbLayout.setConstraints(buttonGameScreenSeven, positionPreference);
 
-        positionPreference.gridx = 6;
-        positionPreference.gridy = 9;
+        positionPreference.gridx = 4;
+        positionPreference.gridy = 11;
         gbLayout.setConstraints(buttonGameScreenEight, positionPreference);
 
-        positionPreference.gridx = 7;
-        positionPreference.gridy = 9;
+        positionPreference.gridx = 5;
+        positionPreference.gridy = 11;
         gbLayout.setConstraints(buttonGameScreenNine, positionPreference);
 
-        positionPreference.gridx = 5;
-        positionPreference.gridy = 10;
+        positionPreference.gridx = 3;
+        positionPreference.gridy = 12;
         gbLayout.setConstraints(buttonGameScreenReset, positionPreference);
 
-        positionPreference.gridx = 6;
-        positionPreference.gridy = 10;
+        positionPreference.gridx = 4;
+        positionPreference.gridy = 12;
         gbLayout.setConstraints(buttonGameScreenZero, positionPreference);
 
-        positionPreference.gridx = 7;
-        positionPreference.gridy = 10;
+        positionPreference.gridx = 5;
+        positionPreference.gridy = 12;
         gbLayout.setConstraints(buttonGameScreenConfirm, positionPreference);
 
         positionPreference.gridx = 1;
-        positionPreference.gridy = 10;
+        positionPreference.gridy = 12;
         gbLayout.setConstraints(buttonGameScreenGiveUp, positionPreference);
 
-        positionPreference.gridx = 11;
-        positionPreference.gridy = 10;
+        positionPreference.gridx = 7;
+        positionPreference.gridy = 12;
         gbLayout.setConstraints(labelGameScreenInputTimes, positionPreference);
+
+        positionPreference.gridx = 2;
+        positionPreference.gridy = 1;
+        positionPreference.weightx = 0.1d;
+        gbLayout.setConstraints(labelGameScreenInputSpaceLeft, positionPreference);
+
+        positionPreference.gridx = 6;
+        positionPreference.gridy = 1;
+        positionPreference.weightx = 0.1d;
+        gbLayout.setConstraints(labelGameScreenInputSpaceRight, positionPreference);
+
+        positionPreference.gridx = 6;
+        positionPreference.gridy = 8;
+        positionPreference.insets = new Insets(30, 0, 30, 0);
+        gbLayout.setConstraints(labelGameScreenInputSpaceCenter, positionPreference);
 
         cardGameScreen.add(labelGameScreenOneDigits);
         cardGameScreen.add(labelGameScreenTwoDigits);
@@ -321,6 +351,9 @@ public class Contents extends JFrame implements ActionListener {
         cardGameScreen.add(buttonGameScreenConfirm);
         cardGameScreen.add(buttonGameScreenGiveUp);
         cardGameScreen.add(labelGameScreenInputTimes);
+        cardGameScreen.add(labelGameScreenInputSpaceLeft);
+        cardGameScreen.add(labelGameScreenInputSpaceRight);
+        cardGameScreen.add(labelGameScreenInputSpaceCenter);
 
         Container contentPane02 = getContentPane();
         contentPane02.add(cardGameScreen, BorderLayout.CENTER);
