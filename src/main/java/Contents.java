@@ -18,66 +18,7 @@ public class Contents extends JFrame implements ActionListener {
 
     public Contents() {
         //タイトル画面カード
-        JPanel cardTitleScreen = new JPanel();
-        cardTitleScreen.setLayout(new BoxLayout(cardTitleScreen, BoxLayout.Y_AXIS));
-
-        JLabel labelTitleScreenTitle = new JLabel(Constants.DISPLAY_TEXT_TITLE);
-        JButton buttonTitleScreenGameStart = new JButton(Constants.DISPLAY_BUTTON_GAME_START);
-        JButton buttonTitleScreenRuleDescription = new JButton(Constants.DISPLAY_BUTTON_RULE_DESCRIPTION);
-        JButton buttonTitleScreenGameEnd = new JButton(Constants.DISPLAY_BUTTON_GAME_END);
-
-        labelTitleScreenTitle.setFont(new Font(Font.DIALOG_INPUT, Font.PLAIN, 100));
-        buttonTitleScreenGameStart.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-        buttonTitleScreenRuleDescription.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-        buttonTitleScreenGameEnd.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-
-        buttonTitleScreenGameStart.setPreferredSize(new Dimension(300, 50));
-        buttonTitleScreenRuleDescription.setPreferredSize(new Dimension(400, 50));
-        buttonTitleScreenGameEnd.setPreferredSize(new Dimension(400, 50));
-
-        labelTitleScreenTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonTitleScreenGameStart.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonTitleScreenRuleDescription.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonTitleScreenGameEnd.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        buttonTitleScreenGameStart.addActionListener(this);
-        buttonTitleScreenGameStart.setActionCommand(Constants.CARD_GAME_SCREEN);
-        buttonTitleScreenRuleDescription.addActionListener(this);
-        buttonTitleScreenRuleDescription.setActionCommand(Constants.CARD_RULE_DESCRIPTION);
-        buttonTitleScreenGameEnd.addActionListener(this);
-        buttonTitleScreenGameEnd.setActionCommand(Constants.BUTTON_GAME_END);
-
-        //ゲームクリア画面デバッグ用
-        JButton buttonTitleScreenGameClear = new JButton(Constants.DISPLAY_BUTTON_GAME_CLEAR);
-        buttonTitleScreenGameClear.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-        buttonTitleScreenGameClear.setPreferredSize(new Dimension(300, 50));
-        buttonTitleScreenGameClear.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonTitleScreenGameClear.addActionListener(this);
-        buttonTitleScreenGameClear.setActionCommand(Constants.CARD_GAME_CLEAR);
-
-        //ゲームオーバー画面デバッグ用
-        JButton buttonTitleScreenGameOver = new JButton(Constants.DISPLAY_BUTTON_GAME_OVER);
-        buttonTitleScreenGameOver.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-        buttonTitleScreenGameOver.setPreferredSize(new Dimension(300, 50));
-        buttonTitleScreenGameOver.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonTitleScreenGameOver.addActionListener(this);
-        buttonTitleScreenGameOver.setActionCommand(Constants.CARD_GAME_OVER);
-
-        cardTitleScreen.add(Box.createGlue());
-        cardTitleScreen.add(labelTitleScreenTitle);
-        cardTitleScreen.add(Box.createGlue());
-        cardTitleScreen.add(Box.createGlue());
-        cardTitleScreen.add(buttonTitleScreenGameStart);
-        cardTitleScreen.add(Box.createGlue());
-        cardTitleScreen.add(buttonTitleScreenRuleDescription);
-        cardTitleScreen.add(Box.createGlue());
-        cardTitleScreen.add(buttonTitleScreenGameEnd);
-        cardTitleScreen.add(Box.createGlue());
-        //ゲームクリア画面デバッグ用
-        cardTitleScreen.add(buttonTitleScreenGameClear);
-        //ゲームオーバー画面デバッグ用
-        cardTitleScreen.add(buttonTitleScreenGameOver);
-
+        TitlePanel cardTitleScreen = new TitlePanel(this);
         Container contentPane01 = getContentPane();
         contentPane01.add(cardTitleScreen, BorderLayout.CENTER);
 
