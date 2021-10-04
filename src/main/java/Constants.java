@@ -6,6 +6,8 @@ public class Constants {
     public static final String DISPLAY_BUTTON_GAME_END = "ゲーム終了";
     public static final String DISPLAY_BUTTON_GAME_CLEAR = "ゲームクリア画面";
     public static final String DISPLAY_BUTTON_GAME_OVER = "ゲームオーバー画面";
+    public static final String DISPLAY_TEXT_INPUT_HISTORY_MESSAGE = "入力履歴";
+    public static final String DISPLAY_TEXT_DISPLAY_NUMBER = "%s";
     public static final String DISPLAY_BUTTON_ONE = "1";
     public static final String DISPLAY_BUTTON_TWO = "2";
     public static final String DISPLAY_BUTTON_THREE = "3";
@@ -18,6 +20,18 @@ public class Constants {
     public static final String DISPLAY_BUTTON_ZERO = "0";
     public static final String DISPLAY_BUTTON_RESET = "リセット";
     public static final String DISPLAY_BUTTON_CONFIRM = "確定";
+    public static final String DISPLAY_BUTTON_GIVE_UP = "ギブアップ";
+    public static final String DISPLAY_TEXT_INPUT_TIMES = "%d回目";
+    public static final int SIZE_TEXT_INPUT_HISTORY_MESSAGE = 24;
+    public static final int SIZE_TEXT_INPUT_HISTORY_NUMBER = 20;
+    public static final int SIZE_TEXT_DISPLAY_NUMBER = 28;
+    public static final int SIZE_NUMBER_BUTTON_NUMBER = 16;
+    public static final int SIZE_NUMBER_BUTTON_RESET = 12;
+    public static final int SIZE_NUMBER_BUTTON_CONFIRM = 16;
+    public static final int SIZE_NUMBER_BUTTON_GIVE_UP = 12;
+    public static final int SIZE_TEXT_INPUT_TIMES = 16;
+    public static final int SIZE_NUMBER_BUTTON_WIDTH = 90;
+    public static final int SIZE_NUMBER_BUTTON_HEIGHT = 50;
     public static final String DISPLAY_TEXT_RULE_DESCRIPTION = """
             <html>ヒット&ブローはプログラム側がランダムで設定した数字を当てるゲームです。<br/>
             <br/>

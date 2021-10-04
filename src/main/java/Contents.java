@@ -88,6 +88,21 @@ public class Contents extends JFrame implements ActionListener {
 
         GridBagConstraints positionPreference = new GridBagConstraints();
 
+        JLabel labelGameScreenOneDigits = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenTwoDigits = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenThreeDigits = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryMessageLeft = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_MESSAGE);
+        JLabel labelGameScreenInputHistoryMessageRight = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_MESSAGE);
+        JLabel labelGameScreenInputHistoryNumberOne = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberTwo = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberThree = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberFour = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberFive = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberSix = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberSeven = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberEight = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberNine = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberTen = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
         JButton buttonGameScreenOne = new JButton(Constants.DISPLAY_BUTTON_ONE);
         JButton buttonGameScreenTwo = new JButton(Constants.DISPLAY_BUTTON_TWO);
         JButton buttonGameScreenThree = new JButton(Constants.DISPLAY_BUTTON_THREE);
@@ -100,17 +115,198 @@ public class Contents extends JFrame implements ActionListener {
         JButton buttonGameScreenZero = new JButton(Constants.DISPLAY_BUTTON_ZERO);
         JButton buttonGameScreenReset = new JButton(Constants.DISPLAY_BUTTON_RESET);
         JButton buttonGameScreenConfirm = new JButton(Constants.DISPLAY_BUTTON_CONFIRM);
+        JButton buttonGameScreenGiveUp = new JButton(Constants.DISPLAY_BUTTON_GIVE_UP);
+        JLabel labelGameScreenInputTimes = new JLabel(Constants.DISPLAY_TEXT_INPUT_TIMES);
 
-        buttonGameScreenOne.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 12));
+        labelGameScreenOneDigits.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_DISPLAY_NUMBER));
+        labelGameScreenTwoDigits.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_DISPLAY_NUMBER));
+        labelGameScreenThreeDigits.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_DISPLAY_NUMBER));
+        labelGameScreenInputHistoryMessageLeft.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_MESSAGE));
+        labelGameScreenInputHistoryMessageRight.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_MESSAGE));
+        labelGameScreenInputHistoryNumberOne.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
+        labelGameScreenInputHistoryNumberTwo.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
+        labelGameScreenInputHistoryNumberThree.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
+        labelGameScreenInputHistoryNumberFour.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
+        labelGameScreenInputHistoryNumberFive.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
+        labelGameScreenInputHistoryNumberSix.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
+        labelGameScreenInputHistoryNumberSeven.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
+        labelGameScreenInputHistoryNumberEight.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
+        labelGameScreenInputHistoryNumberNine.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
+        labelGameScreenInputHistoryNumberTen.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
+        buttonGameScreenOne.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
+        buttonGameScreenTwo.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
+        buttonGameScreenThree.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
+        buttonGameScreenFour.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
+        buttonGameScreenFive.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
+        buttonGameScreenSix.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
+        buttonGameScreenSeven.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
+        buttonGameScreenEight.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
+        buttonGameScreenNine.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
+        buttonGameScreenZero.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
+        buttonGameScreenReset.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_RESET));
+        buttonGameScreenConfirm.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_CONFIRM));
+        buttonGameScreenGiveUp.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_GIVE_UP));
+        labelGameScreenInputTimes.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_TIMES));
+
+        buttonGameScreenOne.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenTwo.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenThree.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenFour.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenFive.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenSix.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenSeven.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenEight.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenNine.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenZero.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenReset.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenConfirm.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+        buttonGameScreenGiveUp.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
+
+        positionPreference.gridx = 5;
+        positionPreference.gridy = 2;
+        gbLayout.setConstraints(labelGameScreenOneDigits, positionPreference);
+
+        positionPreference.gridx = 6;
+        positionPreference.gridy = 2;
+        gbLayout.setConstraints(labelGameScreenTwoDigits, positionPreference);
+
+        positionPreference.gridx = 7;
+        positionPreference.gridy = 2;
+        gbLayout.setConstraints(labelGameScreenThreeDigits, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 1;
+        gbLayout.setConstraints(labelGameScreenInputHistoryMessageLeft, positionPreference);
+
+        positionPreference.gridx = 11;
+        positionPreference.gridy = 1;
+        gbLayout.setConstraints(labelGameScreenInputHistoryMessageRight, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 2;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberOne, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 3;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberTwo, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 4;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberThree, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 5;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberFour, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 6;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberFive, positionPreference);
+
+        positionPreference.gridx = 11;
+        positionPreference.gridy = 2;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberSix, positionPreference);
+
+        positionPreference.gridx = 11;
+        positionPreference.gridy = 3;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberSeven, positionPreference);
+
+        positionPreference.gridx = 11;
+        positionPreference.gridy = 4;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberEight, positionPreference);
+
+        positionPreference.gridx = 11;
+        positionPreference.gridy = 5;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberNine, positionPreference);
+
+        positionPreference.gridx = 11;
+        positionPreference.gridy = 6;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberTen, positionPreference);
 
         positionPreference.gridx = 5;
         positionPreference.gridy = 5;
         gbLayout.setConstraints(buttonGameScreenOne, positionPreference);
 
-        cardGameScreen.add(Box.createGlue());
-        cardGameScreen.add(Box.createGlue());
+        positionPreference.gridx = 6;
+        positionPreference.gridy = 5;
+        gbLayout.setConstraints(buttonGameScreenTwo, positionPreference);
+
+        positionPreference.gridx = 7;
+        positionPreference.gridy = 5;
+        gbLayout.setConstraints(buttonGameScreenThree, positionPreference);
+
+        positionPreference.gridx = 5;
+        positionPreference.gridy = 6;
+        gbLayout.setConstraints(buttonGameScreenFour, positionPreference);
+
+        positionPreference.gridx = 6;
+        positionPreference.gridy = 6;
+        gbLayout.setConstraints(buttonGameScreenFive, positionPreference);
+
+        positionPreference.gridx = 7;
+        positionPreference.gridy = 6;
+        gbLayout.setConstraints(buttonGameScreenSix, positionPreference);
+
+        positionPreference.gridx = 5;
+        positionPreference.gridy = 7;
+        gbLayout.setConstraints(buttonGameScreenSeven, positionPreference);
+
+        positionPreference.gridx = 6;
+        positionPreference.gridy = 7;
+        gbLayout.setConstraints(buttonGameScreenEight, positionPreference);
+
+        positionPreference.gridx = 7;
+        positionPreference.gridy = 7;
+        gbLayout.setConstraints(buttonGameScreenNine, positionPreference);
+
+        positionPreference.gridx = 5;
+        positionPreference.gridy = 8;
+        gbLayout.setConstraints(buttonGameScreenReset, positionPreference);
+
+        positionPreference.gridx = 6;
+        positionPreference.gridy = 8;
+        gbLayout.setConstraints(buttonGameScreenZero, positionPreference);
+
+        positionPreference.gridx = 7;
+        positionPreference.gridy = 8;
+        gbLayout.setConstraints(buttonGameScreenConfirm, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 8;
+        gbLayout.setConstraints(buttonGameScreenGiveUp, positionPreference);
+
+        positionPreference.gridx = 11;
+        positionPreference.gridy = 8;
+        gbLayout.setConstraints(labelGameScreenInputTimes, positionPreference);
+
+        cardGameScreen.add(labelGameScreenOneDigits);
+        cardGameScreen.add(labelGameScreenTwoDigits);
+        cardGameScreen.add(labelGameScreenThreeDigits);
+        cardGameScreen.add(labelGameScreenInputHistoryMessageLeft);
+        cardGameScreen.add(labelGameScreenInputHistoryMessageRight);
+        cardGameScreen.add(labelGameScreenInputHistoryNumberOne);
+        cardGameScreen.add(labelGameScreenInputHistoryNumberTwo);
+        cardGameScreen.add(labelGameScreenInputHistoryNumberThree);
+        cardGameScreen.add(labelGameScreenInputHistoryNumberFour);
+        cardGameScreen.add(labelGameScreenInputHistoryNumberFive);
+        cardGameScreen.add(labelGameScreenInputHistoryNumberSix);
+        cardGameScreen.add(labelGameScreenInputHistoryNumberSeven);
+        cardGameScreen.add(labelGameScreenInputHistoryNumberEight);
+        cardGameScreen.add(labelGameScreenInputHistoryNumberNine);
+        cardGameScreen.add(labelGameScreenInputHistoryNumberTen);
         cardGameScreen.add(buttonGameScreenOne);
-        cardGameScreen.add(Box.createGlue());
+        cardGameScreen.add(buttonGameScreenTwo);
+        cardGameScreen.add(buttonGameScreenThree);
+        cardGameScreen.add(buttonGameScreenFour);
+        cardGameScreen.add(buttonGameScreenFive);
+        cardGameScreen.add(buttonGameScreenSix);
+        cardGameScreen.add(buttonGameScreenSeven);
+        cardGameScreen.add(buttonGameScreenEight);
+        cardGameScreen.add(buttonGameScreenNine);
+        cardGameScreen.add(buttonGameScreenZero);
+        cardGameScreen.add(buttonGameScreenReset);
+        cardGameScreen.add(buttonGameScreenConfirm);
+        cardGameScreen.add(buttonGameScreenGiveUp);
+        cardGameScreen.add(labelGameScreenInputTimes);
 
         Container contentPane02 = getContentPane();
         contentPane02.add(cardGameScreen, BorderLayout.CENTER);
