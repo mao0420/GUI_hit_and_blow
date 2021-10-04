@@ -93,16 +93,18 @@ public class Contents extends JFrame implements ActionListener {
         JLabel labelGameScreenThreeDigits = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
         JLabel labelGameScreenInputHistoryMessageLeft = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_MESSAGE);
         JLabel labelGameScreenInputHistoryMessageRight = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_MESSAGE);
-        JLabel labelGameScreenInputHistoryNumberOne = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
-        JLabel labelGameScreenInputHistoryNumberTwo = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
-        JLabel labelGameScreenInputHistoryNumberThree = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
-        JLabel labelGameScreenInputHistoryNumberFour = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
-        JLabel labelGameScreenInputHistoryNumberFive = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
-        JLabel labelGameScreenInputHistoryNumberSix = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
-        JLabel labelGameScreenInputHistoryNumberSeven = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
-        JLabel labelGameScreenInputHistoryNumberEight = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
-        JLabel labelGameScreenInputHistoryNumberNine = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
-        JLabel labelGameScreenInputHistoryNumberTen = new JLabel(Constants.DISPLAY_TEXT_DISPLAY_NUMBER);
+        JLabel labelGameScreenInputHistoryDescriptionLeft = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_DESCRIPTION);
+        JLabel labelGameScreenInputHistoryDescriptionRight = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_DESCRIPTION);
+        JLabel labelGameScreenInputHistoryNumberOne = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberTwo = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberThree = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberFour = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberFive = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberSix = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberSeven = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberEight = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberNine = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
+        JLabel labelGameScreenInputHistoryNumberTen = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
         JButton buttonGameScreenOne = new JButton(Constants.DISPLAY_BUTTON_ONE);
         JButton buttonGameScreenTwo = new JButton(Constants.DISPLAY_BUTTON_TWO);
         JButton buttonGameScreenThree = new JButton(Constants.DISPLAY_BUTTON_THREE);
@@ -123,6 +125,8 @@ public class Contents extends JFrame implements ActionListener {
         labelGameScreenThreeDigits.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_DISPLAY_NUMBER));
         labelGameScreenInputHistoryMessageLeft.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_MESSAGE));
         labelGameScreenInputHistoryMessageRight.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_MESSAGE));
+        labelGameScreenInputHistoryDescriptionLeft.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_DESCRIPTION));
+        labelGameScreenInputHistoryDescriptionRight.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_DESCRIPTION));
         labelGameScreenInputHistoryNumberOne.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
         labelGameScreenInputHistoryNumberTwo.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
         labelGameScreenInputHistoryNumberThree.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
@@ -184,98 +188,106 @@ public class Contents extends JFrame implements ActionListener {
 
         positionPreference.gridx = 1;
         positionPreference.gridy = 2;
-        gbLayout.setConstraints(labelGameScreenInputHistoryNumberOne, positionPreference);
-
-        positionPreference.gridx = 1;
-        positionPreference.gridy = 3;
-        gbLayout.setConstraints(labelGameScreenInputHistoryNumberTwo, positionPreference);
-
-        positionPreference.gridx = 1;
-        positionPreference.gridy = 4;
-        gbLayout.setConstraints(labelGameScreenInputHistoryNumberThree, positionPreference);
-
-        positionPreference.gridx = 1;
-        positionPreference.gridy = 5;
-        gbLayout.setConstraints(labelGameScreenInputHistoryNumberFour, positionPreference);
-
-        positionPreference.gridx = 1;
-        positionPreference.gridy = 6;
-        gbLayout.setConstraints(labelGameScreenInputHistoryNumberFive, positionPreference);
+        gbLayout.setConstraints(labelGameScreenInputHistoryDescriptionLeft, positionPreference);
 
         positionPreference.gridx = 11;
         positionPreference.gridy = 2;
-        gbLayout.setConstraints(labelGameScreenInputHistoryNumberSix, positionPreference);
+        gbLayout.setConstraints(labelGameScreenInputHistoryDescriptionRight, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 3;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberOne, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 4;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberTwo, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 5;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberThree, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 6;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberFour, positionPreference);
+
+        positionPreference.gridx = 1;
+        positionPreference.gridy = 7;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberFive, positionPreference);
 
         positionPreference.gridx = 11;
         positionPreference.gridy = 3;
-        gbLayout.setConstraints(labelGameScreenInputHistoryNumberSeven, positionPreference);
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberSix, positionPreference);
 
         positionPreference.gridx = 11;
         positionPreference.gridy = 4;
+        gbLayout.setConstraints(labelGameScreenInputHistoryNumberSeven, positionPreference);
+
+        positionPreference.gridx = 11;
+        positionPreference.gridy = 5;
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberEight, positionPreference);
 
         positionPreference.gridx = 11;
-        positionPreference.gridy = 5;
+        positionPreference.gridy = 6;
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberNine, positionPreference);
 
         positionPreference.gridx = 11;
-        positionPreference.gridy = 6;
+        positionPreference.gridy = 7;
         gbLayout.setConstraints(labelGameScreenInputHistoryNumberTen, positionPreference);
 
         positionPreference.gridx = 5;
-        positionPreference.gridy = 5;
+        positionPreference.gridy = 7;
         gbLayout.setConstraints(buttonGameScreenOne, positionPreference);
 
         positionPreference.gridx = 6;
-        positionPreference.gridy = 5;
+        positionPreference.gridy = 7;
         gbLayout.setConstraints(buttonGameScreenTwo, positionPreference);
 
         positionPreference.gridx = 7;
-        positionPreference.gridy = 5;
+        positionPreference.gridy = 7;
         gbLayout.setConstraints(buttonGameScreenThree, positionPreference);
 
         positionPreference.gridx = 5;
-        positionPreference.gridy = 6;
+        positionPreference.gridy = 8;
         gbLayout.setConstraints(buttonGameScreenFour, positionPreference);
 
         positionPreference.gridx = 6;
-        positionPreference.gridy = 6;
+        positionPreference.gridy = 8;
         gbLayout.setConstraints(buttonGameScreenFive, positionPreference);
 
         positionPreference.gridx = 7;
-        positionPreference.gridy = 6;
+        positionPreference.gridy = 8;
         gbLayout.setConstraints(buttonGameScreenSix, positionPreference);
 
         positionPreference.gridx = 5;
-        positionPreference.gridy = 7;
+        positionPreference.gridy = 9;
         gbLayout.setConstraints(buttonGameScreenSeven, positionPreference);
 
         positionPreference.gridx = 6;
-        positionPreference.gridy = 7;
+        positionPreference.gridy = 9;
         gbLayout.setConstraints(buttonGameScreenEight, positionPreference);
 
         positionPreference.gridx = 7;
-        positionPreference.gridy = 7;
+        positionPreference.gridy = 9;
         gbLayout.setConstraints(buttonGameScreenNine, positionPreference);
 
         positionPreference.gridx = 5;
-        positionPreference.gridy = 8;
+        positionPreference.gridy = 10;
         gbLayout.setConstraints(buttonGameScreenReset, positionPreference);
 
         positionPreference.gridx = 6;
-        positionPreference.gridy = 8;
+        positionPreference.gridy = 10;
         gbLayout.setConstraints(buttonGameScreenZero, positionPreference);
 
         positionPreference.gridx = 7;
-        positionPreference.gridy = 8;
+        positionPreference.gridy = 10;
         gbLayout.setConstraints(buttonGameScreenConfirm, positionPreference);
 
         positionPreference.gridx = 1;
-        positionPreference.gridy = 8;
+        positionPreference.gridy = 10;
         gbLayout.setConstraints(buttonGameScreenGiveUp, positionPreference);
 
         positionPreference.gridx = 11;
-        positionPreference.gridy = 8;
+        positionPreference.gridy = 10;
         gbLayout.setConstraints(labelGameScreenInputTimes, positionPreference);
 
         cardGameScreen.add(labelGameScreenOneDigits);
@@ -283,6 +295,8 @@ public class Contents extends JFrame implements ActionListener {
         cardGameScreen.add(labelGameScreenThreeDigits);
         cardGameScreen.add(labelGameScreenInputHistoryMessageLeft);
         cardGameScreen.add(labelGameScreenInputHistoryMessageRight);
+        cardGameScreen.add(labelGameScreenInputHistoryDescriptionLeft);
+        cardGameScreen.add(labelGameScreenInputHistoryDescriptionRight);
         cardGameScreen.add(labelGameScreenInputHistoryNumberOne);
         cardGameScreen.add(labelGameScreenInputHistoryNumberTwo);
         cardGameScreen.add(labelGameScreenInputHistoryNumberThree);
