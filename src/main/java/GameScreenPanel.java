@@ -119,6 +119,13 @@ public class GameScreenPanel extends JPanel {
         this.add(labelInputSpaceLeft);
         this.add(labelInputSpaceRight);
         this.add(labelInputSpaceCenter);
+
+//        //試行回数のカウンタ―初期化
+//        int tryTimes = Constants.CONSTANT_TRY_TIMES_COUNT_FORMAT;
+//        //10回分の入力履歴の配列を初期化
+//        String[][] inputHistory = new String[10][4];
+//        boolean hasLoopRule = false;
+
     }
 
     private void setFontInGameScreenPanel() {
@@ -325,6 +332,8 @@ public class GameScreenPanel extends JPanel {
     }
 
     private void setActionInSettingsInGameScreenPanel(ActionListener actionListener) {
+//        buttonOne.addActionListener(actionListener);
+//        buttonOne.setActionCommand(Constants.CARD_GAME_OVER);
         buttonGiveUp.addActionListener(actionListener);
         buttonGiveUp.setActionCommand(Constants.CARD_GAME_OVER);
     }

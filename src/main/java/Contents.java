@@ -57,12 +57,12 @@ public class Contents extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
-        if (cmd.equals(Constants.BUTTON_GAME_END)) {
+        if (cmd.startsWith("Card")) {
+            layout.show(cardPanel, cmd);
+        } else if (cmd.equals(Constants.BUTTON_GAME_END)) {
             Component c = (Component) e.getSource();
             Window w = SwingUtilities.getWindowAncestor(c);
             w.dispose();
-        } else {
-            layout.show(cardPanel, cmd);
         }
     }
 }

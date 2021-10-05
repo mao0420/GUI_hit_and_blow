@@ -36,6 +36,7 @@ public class Constants {
     public static final int SIZE_TEXT_INPUT_TIMES = 16;
     public static final int SIZE_NUMBER_BUTTON_WIDTH = 90;
     public static final int SIZE_NUMBER_BUTTON_HEIGHT = 50;
+    public static final int CONSTANT_TRY_TIMES_COUNT_FORMAT = 0;
     public static final String DISPLAY_TEXT_RULE_DESCRIPTION = """
             <html>ヒット&ブローはプログラム側がランダムで設定した数字を当てるゲームです。<br/>
             <br/>
