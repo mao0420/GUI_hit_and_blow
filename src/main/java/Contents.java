@@ -22,7 +22,7 @@ public class Contents extends JFrame implements ActionListener {
         contentPane01.add(cardTitleScreen, BorderLayout.CENTER);
 
         //ゲーム画面カード
-        GameScreenPanel cardGameScreen = new GameScreenPanel();
+        GameScreenPanel cardGameScreen = new GameScreenPanel(this);
         Container contentPane02 = getContentPane();
         contentPane02.add(cardGameScreen, BorderLayout.CENTER);
 

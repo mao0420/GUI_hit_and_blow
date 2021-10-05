@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class GameScreenPanel extends JPanel {
 
@@ -38,7 +39,7 @@ public class GameScreenPanel extends JPanel {
     private final JLabel labelInputSpaceRight;
     private final JLabel labelInputSpaceCenter;
 
-    public GameScreenPanel() {
+    public GameScreenPanel(ActionListener actionListener) {
         GridBagLayout gbLayout = new GridBagLayout();
         this.setLayout(gbLayout);
 
@@ -81,7 +82,8 @@ public class GameScreenPanel extends JPanel {
 
         setFontInGameScreenPanel();
         buttonSettingsInGameScreenPanel();
-        setPositionInGameScreenPanel(positionPreference,gbLayout);
+        setPositionInGameScreenPanel(positionPreference, gbLayout);
+        setActionInSettingsInGameScreenPanel(actionListener);
 
         this.add(labelOneDigits);
         this.add(labelTwoDigits);
@@ -320,5 +322,10 @@ public class GameScreenPanel extends JPanel {
         positionPreference.gridy = 8;
         positionPreference.insets = new Insets(30, 0, 30, 0);
         gbLayout.setConstraints(labelInputSpaceCenter, positionPreference);
+    }
+
+    private void setActionInSettingsInGameScreenPanel(ActionListener actionListener) {
+        buttonGiveUp.addActionListener(actionListener);
+        buttonGiveUp.setActionCommand(Constants.CARD_GAME_OVER);
     }
 }
