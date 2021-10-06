@@ -39,6 +39,8 @@ public class GameScreenPanel extends JPanel {
     private final JLabel labelInputSpaceRight;
     private final JLabel labelInputSpaceCenter;
 
+
+
     public GameScreenPanel(ActionListener actionListener) {
         GridBagLayout gbLayout = new GridBagLayout();
         this.setLayout(gbLayout);

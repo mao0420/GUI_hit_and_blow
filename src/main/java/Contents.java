@@ -6,8 +6,6 @@ public class Contents extends JFrame implements ActionListener {
     JPanel cardPanel;
     CardLayout layout;
 
-    JLabel label = new JLabel();
-
     public static void main(String[] args) {
         Contents frame = new Contents();
         frame.setTitle(Constants.DISPLAY_NAME_FRAME_TITLE);
@@ -61,7 +59,7 @@ public class Contents extends JFrame implements ActionListener {
         String cmd = e.getActionCommand();
         if (cmd.matches("^Card.*")) {
             layout.show(cardPanel, cmd);
-        } else if(cmd.matches("[0-9]")){
+        } else if (cmd.matches("[0-9]")) {
             GameScreenPanel.labelOneDigits.setText(cmd);
         } else if (cmd.equals(Constants.BUTTON_GAME_END)) {
             Component c = (Component) e.getSource();
