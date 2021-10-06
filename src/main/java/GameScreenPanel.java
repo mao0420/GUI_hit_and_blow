@@ -4,9 +4,9 @@ import java.awt.event.ActionListener;
 
 public class GameScreenPanel extends JPanel {
 
-    private final JLabel labelOneDigits;
-    private final JLabel labelTwoDigits;
-    private final JLabel labelThreeDigits;
+    static JLabel labelOneDigits;
+    static JLabel labelTwoDigits;
+    static JLabel labelThreeDigits;
     private final JLabel labelInputHistoryMessageLeft;
     private final JLabel labelInputHistoryMessageRight;
     private final JLabel labelInputHistoryDescriptionLeft;
@@ -332,8 +332,26 @@ public class GameScreenPanel extends JPanel {
     }
 
     private void setActionInSettingsInGameScreenPanel(ActionListener actionListener) {
-//        buttonOne.addActionListener(actionListener);
-//        buttonOne.setActionCommand(Constants.CARD_GAME_OVER);
+        buttonOne.addActionListener(actionListener);
+        buttonOne.setActionCommand(Constants.DISPLAY_BUTTON_ONE);
+        buttonTwo.addActionListener(actionListener);
+        buttonTwo.setActionCommand(Constants.DISPLAY_BUTTON_TWO);
+        buttonThree.addActionListener(actionListener);
+        buttonThree.setActionCommand(Constants.DISPLAY_BUTTON_THREE);
+        buttonFour.addActionListener(actionListener);
+        buttonFour.setActionCommand(Constants.DISPLAY_BUTTON_FOUR);
+        buttonFive.addActionListener(actionListener);
+        buttonFive.setActionCommand(Constants.DISPLAY_BUTTON_FIVE);
+        buttonSix.addActionListener(actionListener);
+        buttonSix.setActionCommand(Constants.DISPLAY_BUTTON_SIX);
+        buttonSeven.addActionListener(actionListener);
+        buttonSeven.setActionCommand(Constants.DISPLAY_BUTTON_SEVEN);
+        buttonEight.addActionListener(actionListener);
+        buttonEight.setActionCommand(Constants.DISPLAY_BUTTON_EIGHT);
+        buttonNine.addActionListener(actionListener);
+        buttonNine.setActionCommand(Constants.DISPLAY_BUTTON_NINE);
+        buttonZero.addActionListener(actionListener);
+        buttonZero.setActionCommand(Constants.DISPLAY_BUTTON_ZERO);
         buttonGiveUp.addActionListener(actionListener);
         buttonGiveUp.setActionCommand(Constants.CARD_GAME_OVER);
     }
