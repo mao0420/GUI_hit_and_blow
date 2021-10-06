@@ -57,10 +57,25 @@ public class Contents extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
-        if (cmd.matches("^Card.*")) {
+        if (cmd.equals(Constants.CARD_GAME_SCREEN)) {
+            layout.show(cardPanel, cmd);
+            GameScreenPanel.labelOneDigits.setText("-");
+            GameScreenPanel.labelTwoDigits.setText("-");
+            GameScreenPanel.labelThreeDigits.setText("-");
+        }else if (cmd.matches("^Card.*")) {
             layout.show(cardPanel, cmd);
         } else if (cmd.matches("[0-9]")) {
-            GameScreenPanel.labelOneDigits.setText(cmd);
+            if (!(GameScreenPanel.labelOneDigits.getText().matches("[0-9]"))){
+                GameScreenPanel.labelOneDigits.setText(cmd);
+            } else if (!(GameScreenPanel.labelTwoDigits.getText().matches("[0-9]"))){
+                GameScreenPanel.labelTwoDigits.setText(cmd);
+            } else {
+                GameScreenPanel.labelThreeDigits.setText(cmd);
+            }
+        } else if (cmd.equals(Constants.DISPLAY_BUTTON_RESET)){
+            GameScreenPanel.labelOneDigits.setText("-");
+            GameScreenPanel.labelTwoDigits.setText("-");
+            GameScreenPanel.labelThreeDigits.setText("-");
         } else if (cmd.equals(Constants.BUTTON_GAME_END)) {
             Component c = (Component) e.getSource();
             Window w = SwingUtilities.getWindowAncestor(c);

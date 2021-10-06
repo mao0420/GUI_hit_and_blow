@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 public class GameScreenPanel extends JPanel {
 
+    static String labelDecisionDigits;
     static JLabel labelOneDigits;
     static JLabel labelTwoDigits;
     static JLabel labelThreeDigits;
@@ -38,8 +39,6 @@ public class GameScreenPanel extends JPanel {
     private final JLabel labelInputSpaceLeft;
     private final JLabel labelInputSpaceRight;
     private final JLabel labelInputSpaceCenter;
-
-
 
     public GameScreenPanel(ActionListener actionListener) {
         GridBagLayout gbLayout = new GridBagLayout();
@@ -354,6 +353,8 @@ public class GameScreenPanel extends JPanel {
         buttonNine.setActionCommand(Constants.DISPLAY_BUTTON_NINE);
         buttonZero.addActionListener(actionListener);
         buttonZero.setActionCommand(Constants.DISPLAY_BUTTON_ZERO);
+        buttonReset.addActionListener(actionListener);
+        buttonReset.setActionCommand(Constants.DISPLAY_BUTTON_RESET);
         buttonGiveUp.addActionListener(actionListener);
         buttonGiveUp.setActionCommand(Constants.CARD_GAME_OVER);
     }
