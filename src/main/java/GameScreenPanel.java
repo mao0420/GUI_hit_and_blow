@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 
 public class GameScreenPanel extends JPanel {
 
-    static String labelDecisionDigits;
     static JLabel labelOneDigits;
     static JLabel labelTwoDigits;
     static JLabel labelThreeDigits;
@@ -35,7 +34,7 @@ public class GameScreenPanel extends JPanel {
     private final JButton buttonReset;
     private final JButton buttonConfirm;
     private final JButton buttonGiveUp;
-    private final JLabel labelInputTimes;
+    static JLabel labelInputTimes;
     private final JLabel labelInputSpaceLeft;
     private final JLabel labelInputSpaceRight;
     private final JLabel labelInputSpaceCenter;
@@ -355,6 +354,8 @@ public class GameScreenPanel extends JPanel {
         buttonZero.setActionCommand(Constants.DISPLAY_BUTTON_ZERO);
         buttonReset.addActionListener(actionListener);
         buttonReset.setActionCommand(Constants.DISPLAY_BUTTON_RESET);
+        buttonConfirm.addActionListener(actionListener);
+        buttonConfirm.setActionCommand(Constants.DISPLAY_BUTTON_CONFIRM);
         buttonGiveUp.addActionListener(actionListener);
         buttonGiveUp.setActionCommand(Constants.CARD_GAME_OVER);
     }
