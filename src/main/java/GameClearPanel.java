@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 public class GameClearPanel extends Container {
 
-    private final JLabel labelResult;
+    static JLabel labelResult;
     private final JButton buttonBackToTitle;
 
     public GameClearPanel(ActionListener actionListener) {

@@ -23,7 +23,7 @@ public class Constants {
     public static final String DISPLAY_BUTTON_RESET = "リセット";
     public static final String DISPLAY_BUTTON_CONFIRM = "確定";
     public static final String DISPLAY_BUTTON_GIVE_UP = "ギブアップ";
-    public static final String DISPLAY_TEXT_INPUT_TIMES = "入力回数:" + Contents.tryTimes + "回";
+    public static final String DISPLAY_TEXT_INPUT_TIMES = "入力回数:%d回";
     public static final String DISPLAY_TEXT_INPUT_SPACE = "";
     public static final int SIZE_TEXT_INPUT_HISTORY_MESSAGE = 24;
     public static final int SIZE_TEXT_INPUT_HISTORY_DESCRIPTION = 18;

@@ -66,7 +66,9 @@ public class Contents extends JFrame implements ActionListener {
             //ゲーム開始ボタンクリック時
             layout.show(cardPanel, cmd);
             answer = correctAnswerNumber();
-//            tryTimes = Constants.CONSTANT_TRY_TIMES_COUNT_FORMAT;
+            tryTimes = Constants.CONSTANT_TRY_TIMES_COUNT_FORMAT;
+            String setTryTimes = String.format(Constants.DISPLAY_TEXT_INPUT_TIMES, tryTimes);
+            GameScreenPanel.labelInputTimes.setText(setTryTimes);
             GameScreenPanel.labelOneDigits.setText("-");
             GameScreenPanel.labelTwoDigits.setText("-");
             GameScreenPanel.labelThreeDigits.setText("-");
@@ -121,25 +123,23 @@ public class Contents extends JFrame implements ActionListener {
         int temporaryInputTimes = tryTimes;
         //試行回数を1増やす
         tryTimes++;
-        GameScreenPanel.labelInputTimes.setText("入力回数:" + tryTimes + "回");
+        String setTryTimes = String.format(Constants.DISPLAY_TEXT_INPUT_TIMES, tryTimes);
+        GameScreenPanel.labelInputTimes.setText(setTryTimes);
         //ヒットブロー計算メソッドへ
         int[] hitBlowCounter = getHitBlow(inputArray, answer);
-//        //桁も数字も合っている数。
-//        System.out.printf((Constants.MESSAGE_HIT) + "%n", hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER]);
-//        //桁は合っていないが数字は合っている数、ヒットとの合計が3より上になる事は無い。
-//        System.out.printf((Constants.MESSAGE_BLOW) + "%n", hitBlowCounter[Constants.CONSTANT_ARRAY_BLOW_COUNTER]);
-//        if (Constants.CONSTANT_HIT_ANSWER_NUMBER == hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER]) {
-//            //hitが3桁全てである場合はゲームクリアとする。
-//            //ゲームクリアメッセージを表示
-//            System.out.printf((Constants.MESSAGE_GAME_CLEAR), Arrays.toString(answer), tryTimes);
-//            return;
-//        } else if (Constants.CONSTANT_GAME_OVER_LIMIT == tryTimes) {
-//            //試行回数が10回目でゲームクリアに到達できない場合はゲームオーバーとする。
-//            System.out.println(Constants.MESSAGE_NUMBER_FIND_FAILURE);
-//            //ゲームオーバーメッセージを表示
-//            System.out.printf(Constants.MESSAGE_GAME_OVER, Arrays.toString(answer));
-//            return;
-//        }
+        if (Constants.CONSTANT_HIT_ANSWER_NUMBER == hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER]) {
+            //hitが3桁全てである場合はゲームクリアとする。
+            layout.show(cardPanel, Constants.CARD_GAME_CLEAR);
+            String setGameClearResult = String.format(Constants.DISPLAY_TEXT_GAME_CLEAR_RESULT, Arrays.toString(answer), tryTimes);
+            GameClearPanel.labelResult.setText(setGameClearResult);
+            return tryTimes;
+        } else if (Constants.CONSTANT_GAME_OVER_LIMIT == tryTimes) {
+            //試行回数が10回目でゲームクリアに到達できない場合はゲームオーバーとする。
+            layout.show(cardPanel, Constants.CARD_GAME_OVER);
+            String setGameOverResult = String.format(Constants.DISPLAY_TEXT_GAME_OVER_RESULT, Arrays.toString(answer));
+            GameOverPanel.labelResult.setText(setGameOverResult);
+            return tryTimes;
+        }
 //        inputHistory[temporaryInputTimes][0] = String.valueOf(tryTimes);
 //        inputHistory[temporaryInputTimes][1] = input;
 //        inputHistory[temporaryInputTimes][2] = String.valueOf(hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER]);
