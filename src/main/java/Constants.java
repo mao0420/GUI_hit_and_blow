@@ -4,8 +4,6 @@ public class Constants {
     public static final String DISPLAY_BUTTON_GAME_START = "ゲームスタート";
     public static final String DISPLAY_BUTTON_RULE_DESCRIPTION = "ルール説明";
     public static final String DISPLAY_BUTTON_GAME_END = "ゲーム終了";
-    public static final String DISPLAY_BUTTON_GAME_CLEAR = "ゲームクリア画面";
-    public static final String DISPLAY_BUTTON_GAME_OVER = "ゲームオーバー画面";
     public static final String DISPLAY_TEXT_INPUT_HISTORY_MESSAGE = "入力履歴";
     public static final String DISPLAY_TEXT_INPUT_HISTORY_DESCRIPTION = "入力数値:Hit:Blow";
     public static final String DISPLAY_TEXT_INPUT_HISTORY_NUMBER = "%s:%s:%s";
@@ -36,6 +34,7 @@ public class Constants {
     public static final int SIZE_NUMBER_BUTTON_CONFIRM = 16;
     public static final int SIZE_NUMBER_BUTTON_GIVE_UP = 10;
     public static final int SIZE_TEXT_INPUT_TIMES = 16;
+    public static final int SIZE_TEXT_ERROR_MESSAGE = 16;
     public static final int SIZE_NUMBER_BUTTON_WIDTH = 90;
     public static final int SIZE_NUMBER_BUTTON_HEIGHT = 50;
     public static final int CONSTANT_DIGIT_NUMBER = 3;
@@ -81,6 +80,8 @@ public class Constants {
             <br/><br/>
             正解の数字は%sでした！<br/><br/></body align=center></html>
             """;
+    public static final String DISPLAY_TEXT_ERROR_DUPLICATION_MESSAGE = "数字に重複があります。";
+    public static final String DISPLAY_TEXT_ERROR_NOT_INPUT_MESSAGE = "未入力の桁があります。";
     public static final String FONT_MS_GOTHIC = "ＭＳ ゴシック";
     public static final String CARD_TITLE_SCREEN = "CardTitleScreen";
     public static final String CARD_RULE_DESCRIPTION = "CardRuleDescription";

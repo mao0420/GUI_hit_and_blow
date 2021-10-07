@@ -82,6 +82,7 @@ public class Contents extends JFrame implements ActionListener {
             GameScreenPanel.labelInputHistoryNumberSeven.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
             GameScreenPanel.labelInputHistoryNumberEight.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
             GameScreenPanel.labelInputHistoryNumberNine.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+            GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_INPUT_SPACE);
         } else if (cmd.matches(Constants.CARD_GAME_OVER)) {
             //ギブアップボタンクリック時
             layout.show(cardPanel, Constants.CARD_GAME_OVER);
@@ -134,6 +135,14 @@ public class Contents extends JFrame implements ActionListener {
     }
 
     public int judge(int tryTimes, int[] answer) {
+        if (GameScreenPanel.labelThreeDigits.getText().equals(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT)){
+            //3桁目まで数字が入力されているか確認
+            GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_ERROR_NOT_INPUT_MESSAGE);
+            return tryTimes;
+        }
         //入力の配列、入力した3桁の数字を1桁ずつに分けて入れる。
         int[] inputArray = new int[Constants.CONSTANT_DIGIT_NUMBER];
         //100の桁を取り出す。
@@ -144,7 +153,10 @@ public class Contents extends JFrame implements ActionListener {
         inputArray[2] = Integer.parseInt(GameScreenPanel.labelThreeDigits.getText());
         if (inputArray[0] == inputArray[1] || inputArray[0] == inputArray[2] || inputArray[1] == inputArray[2]) {
             //数値の重複確認
-
+            GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_ERROR_DUPLICATION_MESSAGE);
             return tryTimes;
         }
         //試行回数を1増やす
@@ -191,6 +203,7 @@ public class Contents extends JFrame implements ActionListener {
         GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
         GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
         GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+        GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_INPUT_SPACE);
         return tryTimes;
     }
 

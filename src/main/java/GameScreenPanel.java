@@ -34,6 +34,7 @@ public class GameScreenPanel extends JPanel {
     private final JButton buttonConfirm;
     private final JButton buttonGiveUp;
     static JLabel labelInputTimes;
+    static JLabel labelErrorMessage;
     private final JLabel labelInputSpaceLeft;
     private final JLabel labelInputSpaceRight;
     private final JLabel labelInputSpaceCenter;
@@ -74,6 +75,7 @@ public class GameScreenPanel extends JPanel {
         buttonConfirm = new JButton(Constants.DISPLAY_BUTTON_CONFIRM);
         buttonGiveUp = new JButton(Constants.DISPLAY_BUTTON_GIVE_UP);
         labelInputTimes = new JLabel(Constants.DISPLAY_TEXT_INPUT_TIMES);
+        labelErrorMessage = new JLabel(Constants.DISPLAY_TEXT_INPUT_SPACE);
         labelInputSpaceLeft = new JLabel(Constants.DISPLAY_TEXT_INPUT_SPACE);
         labelInputSpaceRight = new JLabel(Constants.DISPLAY_TEXT_INPUT_SPACE);
         labelInputSpaceCenter = new JLabel(Constants.DISPLAY_TEXT_INPUT_SPACE);
@@ -113,16 +115,10 @@ public class GameScreenPanel extends JPanel {
         this.add(buttonConfirm);
         this.add(buttonGiveUp);
         this.add(labelInputTimes);
+        this.add(labelErrorMessage);
         this.add(labelInputSpaceLeft);
         this.add(labelInputSpaceRight);
         this.add(labelInputSpaceCenter);
-
-//        //試行回数のカウンタ―初期化
-//        int tryTimes = Constants.CONSTANT_TRY_TIMES_COUNT_FORMAT;
-//        //10回分の入力履歴の配列を初期化
-//        String[][] inputHistory = new String[10][4];
-//        boolean hasLoopRule = false;
-
     }
 
     private void setFontInGameScreenPanel() {
@@ -156,6 +152,7 @@ public class GameScreenPanel extends JPanel {
         buttonConfirm.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_CONFIRM));
         buttonGiveUp.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_GIVE_UP));
         labelInputTimes.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_TIMES));
+        labelErrorMessage.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_ERROR_MESSAGE));
     }
 
     private void buttonSettingsInGameScreenPanel() {
@@ -197,12 +194,12 @@ public class GameScreenPanel extends JPanel {
 
         positionPreference.gridx = 1;
         positionPreference.gridy = 2;
-        positionPreference.insets = new Insets(3, 10, 3, 3);
+        positionPreference.insets = new Insets(3, 25, 3, 3);
         gbLayout.setConstraints(labelInputHistoryDescriptionLeft, positionPreference);
 
         positionPreference.gridx = 7;
         positionPreference.gridy = 2;
-        positionPreference.insets = new Insets(3, 3, 3, 10);
+        positionPreference.insets = new Insets(3, 3, 3, 25);
         gbLayout.setConstraints(labelInputHistoryDescriptionRight, positionPreference);
 
         positionPreference.gridx = 1;
@@ -305,6 +302,10 @@ public class GameScreenPanel extends JPanel {
         positionPreference.gridx = 7;
         positionPreference.gridy = 12;
         gbLayout.setConstraints(labelInputTimes, positionPreference);
+
+        positionPreference.gridx = 7;
+        positionPreference.gridy = 10;
+        gbLayout.setConstraints(labelErrorMessage, positionPreference);
 
         positionPreference.gridx = 2;
         positionPreference.gridy = 1;
