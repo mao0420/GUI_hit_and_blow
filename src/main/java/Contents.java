@@ -7,9 +7,10 @@ public class Contents extends JFrame implements ActionListener {
     JPanel cardPanel;
     CardLayout layout;
 
+    //試行回数のカウンタ―を初期化
     static int tryTimes = Constants.CONSTANT_TRY_TIMES_COUNT_FORMAT;
+    //正解の数字を初期化
     int[] answer = new int[Constants.CONSTANT_DIGIT_NUMBER];
-    int[] inputArray = new int[0];
 
     public static void main(String[] args) {
         Contents frame = new Contents();
@@ -69,10 +70,24 @@ public class Contents extends JFrame implements ActionListener {
             tryTimes = Constants.CONSTANT_TRY_TIMES_COUNT_FORMAT;
             String setTryTimes = String.format(Constants.DISPLAY_TEXT_INPUT_TIMES, tryTimes);
             GameScreenPanel.labelInputTimes.setText(setTryTimes);
-            GameScreenPanel.labelOneDigits.setText("-");
-            GameScreenPanel.labelTwoDigits.setText("-");
-            GameScreenPanel.labelThreeDigits.setText("-");
-        } else if (cmd.matches("^Card.*")) {
+            GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelInputHistoryNumberOne.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+            GameScreenPanel.labelInputHistoryNumberTwo.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+            GameScreenPanel.labelInputHistoryNumberThree.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+            GameScreenPanel.labelInputHistoryNumberFour.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+            GameScreenPanel.labelInputHistoryNumberFive.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+            GameScreenPanel.labelInputHistoryNumberSix.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+            GameScreenPanel.labelInputHistoryNumberSeven.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+            GameScreenPanel.labelInputHistoryNumberEight.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+            GameScreenPanel.labelInputHistoryNumberNine.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        } else if (cmd.matches(Constants.CARD_GAME_OVER)) {
+            //ギブアップボタンクリック時
+            layout.show(cardPanel, Constants.CARD_GAME_OVER);
+            String setGameOverResult = String.format(Constants.DISPLAY_TEXT_GAME_OVER_RESULT, Arrays.toString(answer));
+            GameOverPanel.labelResult.setText(setGameOverResult);
+        }else if (cmd.matches("^Card.*")) {
             //その他画面遷移用ボタンクリック時
             layout.show(cardPanel, cmd);
         } else if (cmd.matches("[0-9]")) {
@@ -86,12 +101,12 @@ public class Contents extends JFrame implements ActionListener {
             }
         } else if (cmd.equals(Constants.DISPLAY_BUTTON_RESET)) {
             //ゲーム画面にてリセットボタンクリック時
-            GameScreenPanel.labelOneDigits.setText("-");
-            GameScreenPanel.labelTwoDigits.setText("-");
-            GameScreenPanel.labelThreeDigits.setText("-");
+            GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
         } else if (cmd.equals(Constants.DISPLAY_BUTTON_CONFIRM)) {
             //ゲーム画面にて確定ボタンクリック時
-            tryTimes = judge(tryTimes, inputArray, answer);
+            tryTimes = judge(tryTimes, answer);
         } else if (cmd.equals(Constants.BUTTON_GAME_END)) {
             //タイトル画面にてゲーム終了ボタンクリック時
             Component c = (Component) e.getSource();
@@ -118,9 +133,20 @@ public class Contents extends JFrame implements ActionListener {
         return correct;
     }
 
-    public int judge(int tryTimes, int[] inputArray, int[] answer) {
-        //試行回数を履歴用変数に保存
-        int temporaryInputTimes = tryTimes;
+    public int judge(int tryTimes, int[] answer) {
+        //入力の配列、入力した3桁の数字を1桁ずつに分けて入れる。
+        int[] inputArray = new int[Constants.CONSTANT_DIGIT_NUMBER];
+        //100の桁を取り出す。
+        inputArray[0] = Integer.parseInt(GameScreenPanel.labelOneDigits.getText());
+        //10の桁を取り出す。
+        inputArray[1] = Integer.parseInt(GameScreenPanel.labelTwoDigits.getText());
+        //1の桁を取り出す。
+        inputArray[2] = Integer.parseInt(GameScreenPanel.labelThreeDigits.getText());
+        if (inputArray[0] == inputArray[1] || inputArray[0] == inputArray[2] || inputArray[1] == inputArray[2]) {
+            //数値の重複確認
+
+            return tryTimes;
+        }
         //試行回数を1増やす
         tryTimes++;
         String setTryTimes = String.format(Constants.DISPLAY_TEXT_INPUT_TIMES, tryTimes);
@@ -140,19 +166,31 @@ public class Contents extends JFrame implements ActionListener {
             GameOverPanel.labelResult.setText(setGameOverResult);
             return tryTimes;
         }
-//        inputHistory[temporaryInputTimes][0] = String.valueOf(tryTimes);
-//        inputHistory[temporaryInputTimes][1] = input;
-//        inputHistory[temporaryInputTimes][2] = String.valueOf(hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER]);
-//        inputHistory[temporaryInputTimes][3] = String.valueOf(hitBlowCounter[Constants.CONSTANT_ARRAY_BLOW_COUNTER]);
-//        System.out.println(Constants.MESSAGE_LOG_HEADER);
-//        for (int k = 0; k < tryTimes; k++) {
-//            System.out.printf((Constants.MESSAGE_LOG) + "%n", inputHistory[k][0], inputHistory[k][1], inputHistory[k][2], inputHistory[k][3]);
-//        }
-//        //再度数値入力メソッドから繰り返す。その際ミスカウントをリセットする。
-//        numberEntry(tryTimes, answer, inputHistory, Constants.CONSTANT_NUMBER_ENTRY_MISS_COUNT_RESET);
-        GameScreenPanel.labelOneDigits.setText("-");
-        GameScreenPanel.labelTwoDigits.setText("-");
-        GameScreenPanel.labelThreeDigits.setText("-");
+        //履歴格納用に一時保存
+        String inputHistory = String.format(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER, Arrays.toString(inputArray), hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER], hitBlowCounter[Constants.CONSTANT_ARRAY_BLOW_COUNTER]);
+        //何回目の入力かを判断
+        if (tryTimes == 1) {
+            GameScreenPanel.labelInputHistoryNumberOne.setText(inputHistory);
+        } else if (tryTimes == 2) {
+            GameScreenPanel.labelInputHistoryNumberTwo.setText(inputHistory);
+        } else if (tryTimes == 3) {
+            GameScreenPanel.labelInputHistoryNumberThree.setText(inputHistory);
+        } else if (tryTimes == 4) {
+            GameScreenPanel.labelInputHistoryNumberFour.setText(inputHistory);
+        } else if (tryTimes == 5) {
+            GameScreenPanel.labelInputHistoryNumberFive.setText(inputHistory);
+        } else if (tryTimes == 6) {
+            GameScreenPanel.labelInputHistoryNumberSix.setText(inputHistory);
+        } else if (tryTimes == 7) {
+            GameScreenPanel.labelInputHistoryNumberSeven.setText(inputHistory);
+        } else if (tryTimes == 8) {
+            GameScreenPanel.labelInputHistoryNumberEight.setText(inputHistory);
+        } else if (tryTimes == 9) {
+            GameScreenPanel.labelInputHistoryNumberNine.setText(inputHistory);
+        }
+        GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+        GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+        GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
         return tryTimes;
     }
 

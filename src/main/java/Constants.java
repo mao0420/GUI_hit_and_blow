@@ -10,6 +10,8 @@ public class Constants {
     public static final String DISPLAY_TEXT_INPUT_HISTORY_DESCRIPTION = "入力数値:Hit:Blow";
     public static final String DISPLAY_TEXT_INPUT_HISTORY_NUMBER = "%s:%s:%s";
     public static final String DISPLAY_TEXT_DISPLAY_NUMBER = "%s";
+    public static final String DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT = "-";
+    public static final String DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT = "-:-:-";
     public static final String DISPLAY_BUTTON_ONE = "1";
     public static final String DISPLAY_BUTTON_TWO = "2";
     public static final String DISPLAY_BUTTON_THREE = "3";

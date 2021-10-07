@@ -21,21 +21,21 @@ public class TitleScreenPanel extends JPanel {
         setAlignmentInTitleScreenPanel();
         setActionInTitleScreenPanel(actionListener);
 
-        //ゲームクリア画面デバッグ用
-        JButton buttonTitleScreenGameClear = new JButton(Constants.DISPLAY_BUTTON_GAME_CLEAR);
-        buttonTitleScreenGameClear.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-        buttonTitleScreenGameClear.setPreferredSize(new Dimension(300, 50));
-        buttonTitleScreenGameClear.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonTitleScreenGameClear.addActionListener(actionListener);
-        buttonTitleScreenGameClear.setActionCommand(Constants.CARD_GAME_CLEAR);
-
-        //ゲームオーバー画面デバッグ用
-        JButton buttonTitleScreenGameOver = new JButton(Constants.DISPLAY_BUTTON_GAME_OVER);
-        buttonTitleScreenGameOver.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-        buttonTitleScreenGameOver.setPreferredSize(new Dimension(300, 50));
-        buttonTitleScreenGameOver.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonTitleScreenGameOver.addActionListener(actionListener);
-        buttonTitleScreenGameOver.setActionCommand(Constants.CARD_GAME_OVER);
+//        //ゲームクリア画面デバッグ用
+//        JButton buttonTitleScreenGameClear = new JButton(Constants.DISPLAY_BUTTON_GAME_CLEAR);
+//        buttonTitleScreenGameClear.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
+//        buttonTitleScreenGameClear.setPreferredSize(new Dimension(300, 50));
+//        buttonTitleScreenGameClear.setAlignmentX(Component.CENTER_ALIGNMENT);
+//        buttonTitleScreenGameClear.addActionListener(actionListener);
+//        buttonTitleScreenGameClear.setActionCommand(Constants.CARD_GAME_CLEAR);
+//
+//        //ゲームオーバー画面デバッグ用
+//        JButton buttonTitleScreenGameOver = new JButton(Constants.DISPLAY_BUTTON_GAME_OVER);
+//        buttonTitleScreenGameOver.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
+//        buttonTitleScreenGameOver.setPreferredSize(new Dimension(300, 50));
+//        buttonTitleScreenGameOver.setAlignmentX(Component.CENTER_ALIGNMENT);
+//        buttonTitleScreenGameOver.addActionListener(actionListener);
+//        buttonTitleScreenGameOver.setActionCommand(Constants.CARD_GAME_OVER);
 
         this.add(Box.createGlue());
         this.add(labelTitle);
@@ -47,10 +47,10 @@ public class TitleScreenPanel extends JPanel {
         this.add(Box.createGlue());
         this.add(buttonGameEnd);
         this.add(Box.createGlue());
-        //ゲームクリア画面デバッグ用
-        this.add(buttonTitleScreenGameClear);
-        //ゲームオーバー画面デバッグ用
-        this.add(buttonTitleScreenGameOver);
+//        //ゲームクリア画面デバッグ用
+//        this.add(buttonTitleScreenGameClear);
+//        //ゲームオーバー画面デバッグ用
+//        this.add(buttonTitleScreenGameOver);
     }
 
     private void setFontInTitleScreenPanel() {

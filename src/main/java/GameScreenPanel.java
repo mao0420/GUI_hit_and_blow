@@ -11,16 +11,15 @@ public class GameScreenPanel extends JPanel {
     private final JLabel labelInputHistoryMessageRight;
     private final JLabel labelInputHistoryDescriptionLeft;
     private final JLabel labelInputHistoryDescriptionRight;
-    private final JLabel labelInputHistoryNumberOne;
-    private final JLabel labelInputHistoryNumberTwo;
-    private final JLabel labelInputHistoryNumberThree;
-    private final JLabel labelInputHistoryNumberFour;
-    private final JLabel labelInputHistoryNumberFive;
-    private final JLabel labelInputHistoryNumberSix;
-    private final JLabel labelInputHistoryNumberSeven;
-    private final JLabel labelInputHistoryNumberEight;
-    private final JLabel labelInputHistoryNumberNine;
-    private final JLabel labelInputHistoryNumberTen;
+    static JLabel labelInputHistoryNumberOne;
+    static JLabel labelInputHistoryNumberTwo;
+    static JLabel labelInputHistoryNumberThree;
+    static JLabel labelInputHistoryNumberFour;
+    static JLabel labelInputHistoryNumberFive;
+    static JLabel labelInputHistoryNumberSix;
+    static JLabel labelInputHistoryNumberSeven;
+    static JLabel labelInputHistoryNumberEight;
+    static JLabel labelInputHistoryNumberNine;
     private final JButton buttonOne;
     private final JButton buttonTwo;
     private final JButton buttonThree;
@@ -61,7 +60,6 @@ public class GameScreenPanel extends JPanel {
         labelInputHistoryNumberSeven = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
         labelInputHistoryNumberEight = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
         labelInputHistoryNumberNine = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
-        labelInputHistoryNumberTen = new JLabel(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER);
         buttonOne = new JButton(Constants.DISPLAY_BUTTON_ONE);
         buttonTwo = new JButton(Constants.DISPLAY_BUTTON_TWO);
         buttonThree = new JButton(Constants.DISPLAY_BUTTON_THREE);
@@ -101,7 +99,6 @@ public class GameScreenPanel extends JPanel {
         this.add(labelInputHistoryNumberSeven);
         this.add(labelInputHistoryNumberEight);
         this.add(labelInputHistoryNumberNine);
-        this.add(labelInputHistoryNumberTen);
         this.add(buttonOne);
         this.add(buttonTwo);
         this.add(buttonThree);
@@ -145,7 +142,6 @@ public class GameScreenPanel extends JPanel {
         labelInputHistoryNumberSeven.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
         labelInputHistoryNumberEight.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
         labelInputHistoryNumberNine.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
-        labelInputHistoryNumberTen.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_INPUT_HISTORY_NUMBER));
         buttonOne.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
         buttonTwo.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
         buttonThree.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_NUMBER_BUTTON_NUMBER));
@@ -253,11 +249,6 @@ public class GameScreenPanel extends JPanel {
         positionPreference.gridy = 6;
         positionPreference.insets = new Insets(3, 3, 3, 3);
         gbLayout.setConstraints(labelInputHistoryNumberNine, positionPreference);
-
-        positionPreference.gridx = 7;
-        positionPreference.gridy = 7;
-        positionPreference.insets = new Insets(3, 3, 3, 3);
-        gbLayout.setConstraints(labelInputHistoryNumberTen, positionPreference);
 
         positionPreference.gridx = 3;
         positionPreference.gridy = 9;
