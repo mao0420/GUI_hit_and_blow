@@ -89,4 +89,13 @@ public class Constants {
     public static final String CARD_GAME_CLEAR = "CardGameClear";
     public static final String CARD_GAME_OVER = "CardGameOver";
     public static final String BUTTON_GAME_END = "ButtonTitleScreenGameEnd";
+    public static final int TEST_ELEMENT_DIGITS = 3;
+    public static final int TEST_HIT_ZERO = 0;
+    public static final int TEST_HIT_ONE = 1;
+    public static final int TEST_HIT_TWO = 2;
+    public static final int TEST_HIT_THREE = 3;
+    public static final int TEST_BLOW_ZERO = 0;
+    public static final int TEST_BLOW_ONE = 1;
+    public static final int TEST_BLOW_TWO = 2;
+    public static final int TEST_BLOW_THREE = 3;
 }
