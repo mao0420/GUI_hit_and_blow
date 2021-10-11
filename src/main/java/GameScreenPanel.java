@@ -80,6 +80,10 @@ public class GameScreenPanel extends JPanel {
         labelInputSpaceRight = new JLabel(Constants.DISPLAY_TEXT_INPUT_SPACE);
         labelInputSpaceCenter = new JLabel(Constants.DISPLAY_TEXT_INPUT_SPACE);
 
+        buttonOne.setName(Constants.DISPLAY_BUTTON_ONE);
+        buttonTwo.setName(Constants.DISPLAY_BUTTON_TWO);
+        buttonThree.setName(Constants.DISPLAY_BUTTON_THREE);
+
         setFontInGameScreenPanel();
         buttonSettingsInGameScreenPanel();
         setPositionInGameScreenPanel(positionPreference, gbLayout);

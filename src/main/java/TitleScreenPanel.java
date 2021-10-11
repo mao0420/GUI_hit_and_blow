@@ -13,6 +13,7 @@ public class TitleScreenPanel extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         labelTitle = new JLabel(Constants.DISPLAY_TEXT_TITLE);
         buttonGameStart = new JButton(Constants.DISPLAY_BUTTON_GAME_START);
+        buttonGameStart.setName(Constants.DISPLAY_BUTTON_GAME_START);
         buttonRuleDescription = new JButton(Constants.DISPLAY_BUTTON_RULE_DESCRIPTION);
         buttonGameEnd = new JButton(Constants.DISPLAY_BUTTON_GAME_END);
 

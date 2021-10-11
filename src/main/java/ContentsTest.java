@@ -1,9 +1,39 @@
+import org.assertj.swing.edt.GuiActionRunner;
+import org.assertj.swing.fixture.FrameFixture;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class ContentsTest {
+    private FrameFixture window;
+
+    @BeforeEach
+    public void setUp() {
+        Contents frame = GuiActionRunner.execute(Contents::new);
+        window = new FrameFixture(frame);
+        window.show();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        window.cleanUp();
+    }
+
+    //ゲーム画面 数値入力テスト
+    @Test
+    void testGameScreenNumberInput() {
+        window.button("ゲームスタート").click();
+        window.button("1").click();
+        window.button("2").click();
+        window.button("3").click();
+        assertEquals(GameScreenPanel.labelOneDigits.getText(), Constants.TEST_INPUT_NUMBER_ONE);
+        assertEquals(GameScreenPanel.labelTwoDigits.getText(), Constants.TEST_INPUT_NUMBER_TWO);
+        assertEquals(GameScreenPanel.labelThreeDigits.getText(), Constants.TEST_INPUT_NUMBER_THREE);
+    }
+
     //正解数値設定テスト
     @Test
     void testCorrectAnswerNumber() {
