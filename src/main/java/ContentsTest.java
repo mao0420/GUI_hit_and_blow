@@ -26,6 +26,13 @@ class ContentsTest {
         window.cleanUp();
     }
 
+    //ゲーム説明画面 文言確認テスト
+    @Test
+    void testTitleScreenTransitionGameScreen() {
+        window.button(Constants.DISPLAY_BUTTON_RULE_DESCRIPTION).click();
+        assertEquals(Constants.DISPLAY_TEXT_RULE_DESCRIPTION, Constants.TEST_DISPLAY_TEXT_RULE_DESCRIPTION);
+    }
+
     //ゲーム画面 数値入力テスト
     @Test
     void testGameScreenNumberInput() {
@@ -137,6 +144,27 @@ class ContentsTest {
         assertThat(GameScreenPanel.labelInputHistoryNumberEight.getText()).matches(Pattern.compile("\\[" + testHistory[7][0] + ", " + testHistory[7][1] + ", " + testHistory[7][2] + "]:[0-3]:[0-3]"));
         assertThat(GameScreenPanel.labelInputHistoryNumberNine.getText()).matches(Pattern.compile("\\[" + testHistory[8][0] + ", " + testHistory[8][1] + ", " + testHistory[8][2] + "]:[0-3]:[0-3]"));
     }
+
+//    //ゲーム画面 ギブアップ選択時テスト
+//    @Test
+//    void testGameScreenInputGiveUp() {
+//        int[] testAnswer = Contents.correctAnswerNumber();
+//        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+//        window.button(Constants.TEST_DISPLAY_BUTTON_GIVE_UP).click();
+//        assertThat(GameOverPanel.labelResult.getText()).matches(String.format(Constants.TEST_DISPLAY_TEXT_GAME_OVER_RESULT, Arrays.toString(testAnswer)));
+//    }
+//
+//    //ゲーム画面 ゲームオーバーテスト
+//    @Test
+//    void testGameScreenGameOverTransition() {
+//        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+//        for (int i = 0; i <= 10; i++) {
+//            window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
+//            window.button(Constants.TEST_INPUT_NUMBER_TWO).click();
+//            window.button(Constants.TEST_INPUT_NUMBER_THREE).click();
+//            window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+//        }
+//    }
 
     //正解数値設定テスト
     @Test
