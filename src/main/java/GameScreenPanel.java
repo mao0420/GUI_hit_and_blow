@@ -90,6 +90,9 @@ public class GameScreenPanel extends JPanel {
         buttonEight.setName(Constants.DISPLAY_BUTTON_EIGHT);
         buttonNine.setName(Constants.DISPLAY_BUTTON_NINE);
         buttonZero.setName(Constants.DISPLAY_BUTTON_ZERO);
+        buttonReset.setName(Constants.DISPLAY_BUTTON_RESET);
+        buttonConfirm.setName(Constants.DISPLAY_BUTTON_CONFIRM);
+        buttonGiveUp.setName(Constants.DISPLAY_BUTTON_GIVE_UP);
 
         setFontInGameScreenPanel();
         buttonSettingsInGameScreenPanel();
