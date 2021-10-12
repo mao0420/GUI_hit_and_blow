@@ -4,6 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -25,13 +27,48 @@ class ContentsTest {
     //ゲーム画面 数値入力テスト
     @Test
     void testGameScreenNumberInput() {
-        window.button("ゲームスタート").click();
-        window.button("1").click();
-        window.button("2").click();
-        window.button("3").click();
-        assertEquals(GameScreenPanel.labelOneDigits.getText(), Constants.TEST_INPUT_NUMBER_ONE);
-        assertEquals(GameScreenPanel.labelTwoDigits.getText(), Constants.TEST_INPUT_NUMBER_TWO);
-        assertEquals(GameScreenPanel.labelThreeDigits.getText(), Constants.TEST_INPUT_NUMBER_THREE);
+        String[] testCorrect = new String[Constants.CONSTANT_DIGIT_NUMBER];
+        //0～9格納用のリストを作成
+        ArrayList<Integer> testNumber = new ArrayList<>();
+        for (int i = 0; i <= 9; i++) {
+            //0～9の数を1つずつリストに格納。
+            testNumber.add(i);
+        }
+        //リストに格納した0～9の数をシャッフルする。
+        Collections.shuffle(testNumber);
+        for (int i = 0; i < Constants.CONSTANT_DIGIT_NUMBER; i++) {
+            if (testNumber.get(i) == 1) {
+                testCorrect[i] = Constants.TEST_INPUT_NUMBER_ONE;
+            } else if (testNumber.get(i) == 2) {
+                testCorrect[i] = Constants.TEST_INPUT_NUMBER_TWO;
+            } else if (testNumber.get(i) == 3) {
+                testCorrect[i] = Constants.TEST_INPUT_NUMBER_THREE;
+            } else if (testNumber.get(i) == 4) {
+                testCorrect[i] = Constants.TEST_INPUT_NUMBER_FOUR;
+            } else if (testNumber.get(i) == 5) {
+                testCorrect[i] = Constants.TEST_INPUT_NUMBER_FIVE;
+            } else if (testNumber.get(i) == 6) {
+                testCorrect[i] = Constants.TEST_INPUT_NUMBER_SIX;
+            } else if (testNumber.get(i) == 7) {
+                testCorrect[i] = Constants.TEST_INPUT_NUMBER_SEVEN;
+            } else if (testNumber.get(i) == 8) {
+                testCorrect[i] = Constants.TEST_INPUT_NUMBER_EIGHT;
+            } else if (testNumber.get(i) == 9) {
+                testCorrect[i] = Constants.TEST_INPUT_NUMBER_NINE;
+            } else if (testNumber.get(i) == 0) {
+                testCorrect[i] = Constants.TEST_INPUT_NUMBER_ZERO;
+            }
+        }
+        String testInputDigitsOne = testCorrect[0];
+        String testInputDigitsTwo = testCorrect[1];
+        String testInputDigitsThree = testCorrect[2];
+        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(testInputDigitsOne).click();
+        window.button(testInputDigitsTwo).click();
+        window.button(testInputDigitsThree).click();
+        assertEquals(GameScreenPanel.labelOneDigits.getText(), testInputDigitsOne);
+        assertEquals(GameScreenPanel.labelTwoDigits.getText(), testInputDigitsTwo);
+        assertEquals(GameScreenPanel.labelThreeDigits.getText(), testInputDigitsThree);
     }
 
     //正解数値設定テスト
