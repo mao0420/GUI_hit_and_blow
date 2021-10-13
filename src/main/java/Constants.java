@@ -93,16 +93,10 @@ public class Constants {
     public static final String TEST_INPUT_NUMBER_ONE = "1";
     public static final String TEST_INPUT_NUMBER_TWO = "2";
     public static final String TEST_INPUT_NUMBER_THREE = "3";
-    public static final String TEST_INPUT_NUMBER_FOUR = "4";
-    public static final String TEST_INPUT_NUMBER_FIVE = "5";
-    public static final String TEST_INPUT_NUMBER_SIX = "6";
-    public static final String TEST_INPUT_NUMBER_SEVEN = "7";
-    public static final String TEST_INPUT_NUMBER_EIGHT = "8";
-    public static final String TEST_INPUT_NUMBER_NINE = "9";
-    public static final String TEST_INPUT_NUMBER_ZERO = "0";
     public static final String TEST_DISPLAY_BUTTON_RESET = "リセット";
     public static final String TEST_DISPLAY_BUTTON_CONFIRM = "確定";
     public static final String TEST_DISPLAY_BUTTON_GIVE_UP = "ギブアップ";
+    public static final String TEST_DISPLAY_TEXT_INPUT_SPACE = "";
     public static final int TEST_ELEMENT_DIGITS = 3;
     public static final int TEST_HIT_ZERO = 0;
     public static final int TEST_HIT_ONE = 1;
@@ -112,6 +106,14 @@ public class Constants {
     public static final int TEST_BLOW_ONE = 1;
     public static final int TEST_BLOW_TWO = 2;
     public static final int TEST_BLOW_THREE = 3;
+    public static final int TEST_TRY_TIMES_GAME_OVER = 9;
+    public static final String TEST_DISPLAY_TEXT_GAME_CLEAR_RESULT = """
+            <html><body align=center>ゲームクリア！<br/>
+            <br/>
+            正解の数字は%sでした！<br/>
+            <br/>
+            入力回数:%d回<br/></body align=center></html>
+            """;
     public static final String TEST_DISPLAY_TEXT_GAME_OVER_RESULT = """
             <html><body align=center>ゲームオーバー！<br/>
             <br/><br/>
@@ -139,4 +141,6 @@ public class Constants {
             また、数値入力時にGを入力するとギブアップとしてゲームを終了する事が出来ます。<br/>
             <br/></html>
             """;
+    public static final String TEST_DISPLAY_TEXT_ERROR_DUPLICATION_MESSAGE = "数字に重複があります。";
+    public static final String TEST_DISPLAY_TEXT_ERROR_NOT_INPUT_MESSAGE = "未入力の桁があります。";
 }

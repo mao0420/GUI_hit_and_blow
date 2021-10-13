@@ -10,7 +10,7 @@ public class Contents extends JFrame implements ActionListener {
     //試行回数のカウンタ―を初期化
     static int tryTimes = Constants.CONSTANT_TRY_TIMES_COUNT_FORMAT;
     //正解の数字を初期化
-    int[] answer = new int[Constants.CONSTANT_DIGIT_NUMBER];
+    static int[] answer = new int[Constants.CONSTANT_DIGIT_NUMBER];
 
     public static void main(String[] args) {
         Contents frame = new Contents();

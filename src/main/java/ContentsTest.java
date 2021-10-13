@@ -101,25 +101,73 @@ class ContentsTest {
         assertThat(GameScreenPanel.labelInputHistoryNumberNine.getText()).matches(Pattern.compile("\\[" + testHistory[8][0] + ", " + testHistory[8][1] + ", " + testHistory[8][2] + "]:[0-3]:[0-3]"));
     }
 
-//    //ゲーム画面 ギブアップ選択時テスト
+    //ゲーム画面 未入力エラーメッセージテスト
+    @Test
+    void testGameScreenNotInputErrorMessage() {
+        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+        assertEquals(GameScreenPanel.labelErrorMessage.getText(), Constants.TEST_DISPLAY_TEXT_ERROR_NOT_INPUT_MESSAGE);
+    }
+
+    //ゲーム画面 重複エラーメッセージテスト
+    @Test
+    void testGameScreenDuplicationErrorMessage() {
+        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
+        window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
+        window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+        assertEquals(GameScreenPanel.labelErrorMessage.getText(), Constants.TEST_DISPLAY_TEXT_ERROR_DUPLICATION_MESSAGE);
+    }
+
+    //ゲーム画面 正常入力時エラーメッセージ消去テスト
+    @Test
+    void testGameScreenErrorMessageErasure() {
+        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+        window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
+        window.button(Constants.TEST_INPUT_NUMBER_TWO).click();
+        window.button(Constants.TEST_INPUT_NUMBER_THREE).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+        assertEquals(GameScreenPanel.labelErrorMessage.getText(), Constants.TEST_DISPLAY_TEXT_INPUT_SPACE);
+    }
+
+    //ゲーム画面 ギブアップ選択時テキスト確認テスト
+    @Test
+    void testGameScreenInputGiveUp() {
+        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GIVE_UP).click();
+        assertEquals(GameOverPanel.labelResult.getText(), String.format(Constants.TEST_DISPLAY_TEXT_GAME_OVER_RESULT, Arrays.toString(Contents.answer)));
+    }
+
+    //ゲーム画面 ゲームオーバーテキスト確認テスト
+    @Test
+    void testGameScreenGameOverTransition() {
+        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        Contents.tryTimes = Constants.TEST_TRY_TIMES_GAME_OVER;
+        window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
+        window.button(Constants.TEST_INPUT_NUMBER_TWO).click();
+        window.button(Constants.TEST_INPUT_NUMBER_THREE).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+        assertEquals(GameOverPanel.labelResult.getText(), String.format(Constants.TEST_DISPLAY_TEXT_GAME_OVER_RESULT, Arrays.toString(Contents.answer)));
+    }
+
+    //ゲーム画面 ゲームクリアテキスト確認テスト
+    @Test
+    void testGameScreenGameClearTransition() {
+        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(String.valueOf(Contents.answer[0])).click();
+        window.button(String.valueOf(Contents.answer[1])).click();
+        window.button(String.valueOf(Contents.answer[2])).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+        assertEquals(GameClearPanel.labelResult.getText(), String.format(Constants.TEST_DISPLAY_TEXT_GAME_CLEAR_RESULT, Arrays.toString(Contents.answer), Contents.tryTimes));
+    }
+
+//    //タイトル画面 ゲーム終了時プログラム終了確認テスト
 //    @Test
-//    void testGameScreenInputGiveUp() {
-//        int[] testAnswer = Contents.correctAnswerNumber();
-//        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
-//        window.button(Constants.TEST_DISPLAY_BUTTON_GIVE_UP).click();
-//        assertThat(GameOverPanel.labelResult.getText()).matches(String.format(Constants.TEST_DISPLAY_TEXT_GAME_OVER_RESULT, Arrays.toString(testAnswer)));
-//    }
-//
-//    //ゲーム画面 ゲームオーバーテスト
-//    @Test
-//    void testGameScreenGameOverTransition() {
-//        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
-//        for (int i = 0; i <= 10; i++) {
-//            window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
-//            window.button(Constants.TEST_INPUT_NUMBER_TWO).click();
-//            window.button(Constants.TEST_INPUT_NUMBER_THREE).click();
-//            window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
-//        }
+//    void testGameScreenGameEnd(){
+//        window.button(Constants.DISPLAY_BUTTON_GAME_END).click();
+//        assertEquals();
 //    }
 
     //正解数値設定テスト
