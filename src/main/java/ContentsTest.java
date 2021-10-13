@@ -36,41 +36,17 @@ class ContentsTest {
     //ゲーム画面 数値入力テスト
     @Test
     void testGameScreenNumberInput() {
-        String[] testCorrect = new String[Constants.CONSTANT_DIGIT_NUMBER];
         //0～9格納用のリストを作成
-        ArrayList<Integer> testNumber = new ArrayList<>();
+        ArrayList<String> testNumber = new ArrayList<>();
         for (int i = 0; i <= 9; i++) {
             //0～9の数を1つずつリストに格納。
-            testNumber.add(i);
+            testNumber.add(String.valueOf(i));
         }
         //リストに格納した0～9の数をシャッフルする。
         Collections.shuffle(testNumber);
-        for (int i = 0; i < Constants.CONSTANT_DIGIT_NUMBER; i++) {
-            if (testNumber.get(i) == 1) {
-                testCorrect[i] = Constants.TEST_INPUT_NUMBER_ONE;
-            } else if (testNumber.get(i) == 2) {
-                testCorrect[i] = Constants.TEST_INPUT_NUMBER_TWO;
-            } else if (testNumber.get(i) == 3) {
-                testCorrect[i] = Constants.TEST_INPUT_NUMBER_THREE;
-            } else if (testNumber.get(i) == 4) {
-                testCorrect[i] = Constants.TEST_INPUT_NUMBER_FOUR;
-            } else if (testNumber.get(i) == 5) {
-                testCorrect[i] = Constants.TEST_INPUT_NUMBER_FIVE;
-            } else if (testNumber.get(i) == 6) {
-                testCorrect[i] = Constants.TEST_INPUT_NUMBER_SIX;
-            } else if (testNumber.get(i) == 7) {
-                testCorrect[i] = Constants.TEST_INPUT_NUMBER_SEVEN;
-            } else if (testNumber.get(i) == 8) {
-                testCorrect[i] = Constants.TEST_INPUT_NUMBER_EIGHT;
-            } else if (testNumber.get(i) == 9) {
-                testCorrect[i] = Constants.TEST_INPUT_NUMBER_NINE;
-            } else if (testNumber.get(i) == 0) {
-                testCorrect[i] = Constants.TEST_INPUT_NUMBER_ZERO;
-            }
-        }
-        String testInputDigitsOne = testCorrect[0];
-        String testInputDigitsTwo = testCorrect[1];
-        String testInputDigitsThree = testCorrect[2];
+        String testInputDigitsOne = testNumber.get(0);
+        String testInputDigitsTwo = testNumber.get(1);
+        String testInputDigitsThree = testNumber.get(2);
         window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
         window.button(testInputDigitsOne).click();
         window.button(testInputDigitsTwo).click();
@@ -99,39 +75,19 @@ class ContentsTest {
         window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
         String[][] testHistory = new String[9][Constants.CONSTANT_DIGIT_NUMBER];
         //0～9格納用のリストを作成
-        ArrayList<Integer> testNumber = new ArrayList<>();
+        ArrayList<String> testNumber = new ArrayList<>();
         for (int i = 0; i <= 9; i++) {
             //0～9の数を1つずつリストに格納。
-            testNumber.add(i);
+            testNumber.add(String.valueOf(i));
         }
         for (int i = 0; i < 9; i++) {
             Collections.shuffle(testNumber);
-            for (int j = 0; j < Constants.CONSTANT_DIGIT_NUMBER; j++) {
-                if (testNumber.get(j) == 1) {
-                    testHistory[i][j] = Constants.TEST_INPUT_NUMBER_ONE;
-                } else if (testNumber.get(j) == 2) {
-                    testHistory[i][j] = Constants.TEST_INPUT_NUMBER_TWO;
-                } else if (testNumber.get(j) == 3) {
-                    testHistory[i][j] = Constants.TEST_INPUT_NUMBER_THREE;
-                } else if (testNumber.get(j) == 4) {
-                    testHistory[i][j] = Constants.TEST_INPUT_NUMBER_FOUR;
-                } else if (testNumber.get(j) == 5) {
-                    testHistory[i][j] = Constants.TEST_INPUT_NUMBER_FIVE;
-                } else if (testNumber.get(j) == 6) {
-                    testHistory[i][j] = Constants.TEST_INPUT_NUMBER_SIX;
-                } else if (testNumber.get(j) == 7) {
-                    testHistory[i][j] = Constants.TEST_INPUT_NUMBER_SEVEN;
-                } else if (testNumber.get(j) == 8) {
-                    testHistory[i][j] = Constants.TEST_INPUT_NUMBER_EIGHT;
-                } else if (testNumber.get(j) == 9) {
-                    testHistory[i][j] = Constants.TEST_INPUT_NUMBER_NINE;
-                } else if (testNumber.get(j) == 0) {
-                    testHistory[i][j] = Constants.TEST_INPUT_NUMBER_ZERO;
-                }
-            }
-            window.button(testHistory[i][0]).click();
-            window.button(testHistory[i][1]).click();
-            window.button(testHistory[i][2]).click();
+            testHistory[i][0] = testNumber.get(0);
+            testHistory[i][1] = testNumber.get(1);
+            testHistory[i][2] = testNumber.get(2);
+            window.button(testNumber.get(0)).click();
+            window.button(testNumber.get(1)).click();
+            window.button(testNumber.get(2)).click();
             window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
         }
         assertThat(GameScreenPanel.labelInputHistoryNumberOne.getText()).matches(Pattern.compile("\\[" + testHistory[0][0] + ", " + testHistory[0][1] + ", " + testHistory[0][2] + "]:[0-3]:[0-3]"));
