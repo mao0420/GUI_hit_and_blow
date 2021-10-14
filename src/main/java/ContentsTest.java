@@ -165,37 +165,11 @@ class ContentsTest {
         assertEquals(GameClearPanel.labelResult.getText(), String.format(Constants.TEST_DISPLAY_TEXT_GAME_CLEAR_RESULT, Arrays.toString(Contents.answer), Contents.tryTimes));
     }
 
-    //ゲーム画面 ギブアップ選択時入力数値消去確認テスト
+    //ゲーム画面 ゲームオーバー時入力数値消去確認テスト
     @Test
     void testGameScreenGiveUpEraseInput() {
         window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_GIVE_UP).click();
-        window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
-        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
-        assertEquals(GameScreenPanel.labelInputTimes.getText(),Constants.TEST_DISPLAY_TEXT_INPUT_TIMES);
-        assertEquals(GameScreenPanel.labelOneDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelTwoDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelThreeDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberOne.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberTwo.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberThree.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberFour.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberFive.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberSix.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberSeven.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberEight.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberNine.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-    }
-
-    //ゲーム画面 ゲームオーバー時入力数値消去確認テスト
-    @Test
-    void testGameScreenGameOverEraseInput() {
-        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
-        Contents.tryTimes = Constants.TEST_TRY_TIMES_GAME_OVER;
-        window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
-        window.button(Constants.TEST_INPUT_NUMBER_TWO).click();
-        window.button(Constants.TEST_INPUT_NUMBER_THREE).click();
-        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         assertEquals(GameScreenPanel.labelInputTimes.getText(),Constants.TEST_DISPLAY_TEXT_INPUT_TIMES);
