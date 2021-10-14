@@ -1,8 +1,10 @@
 import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.fixture.FrameFixture;
+import org.junit.Rule;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -12,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class ContentsTest {
-    private FrameFixture window;
+    private static FrameFixture window;
 
     @BeforeEach
     public void setUp() {
@@ -163,12 +165,15 @@ class ContentsTest {
         assertEquals(GameClearPanel.labelResult.getText(), String.format(Constants.TEST_DISPLAY_TEXT_GAME_CLEAR_RESULT, Arrays.toString(Contents.answer), Contents.tryTimes));
     }
 
-//    //タイトル画面 ゲーム終了時プログラム終了確認テスト
-//    @Test
-//    void testGameScreenGameEnd(){
-//        window.button(Constants.DISPLAY_BUTTON_GAME_END).click();
-//        assertEquals();
-//    }
+    // @Ruleアノテーションと共に、ExpectedSystemExitクラスのインスタンス作成
+    @Rule
+    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+
+    @Test
+    public void testGameScreenGameEnd() {
+        window.button(Constants.DISPLAY_BUTTON_GAME_END).click();
+        exit.expectSystemExitWithStatus(0);
+    }
 
     //正解数値設定テスト
     @Test
