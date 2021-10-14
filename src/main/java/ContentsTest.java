@@ -31,7 +31,6 @@ class ContentsTest {
     //ゲーム説明画面 文言確認テスト
     @Test
     void testTitleScreenTransitionGameScreen() {
-        window.button(Constants.TEST_DISPLAY_BUTTON_RULE_DESCRIPTION).click();
         assertEquals(Constants.DISPLAY_TEXT_RULE_DESCRIPTION, Constants.TEST_DISPLAY_TEXT_RULE_DESCRIPTION);
     }
 
@@ -165,36 +164,11 @@ class ContentsTest {
         assertEquals(GameClearPanel.labelResult.getText(), String.format(Constants.TEST_DISPLAY_TEXT_GAME_CLEAR_RESULT, Arrays.toString(Contents.answer), Contents.tryTimes));
     }
 
-    //ゲーム画面 ゲームオーバー時入力数値消去確認テスト
+    //ゲーム画面 再度ゲーム開始時 入力数値リセット確認テスト
     @Test
     void testGameScreenGiveUpEraseInput() {
         window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_GIVE_UP).click();
-        window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
-        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
-        assertEquals(GameScreenPanel.labelInputTimes.getText(),Constants.TEST_DISPLAY_TEXT_INPUT_TIMES);
-        assertEquals(GameScreenPanel.labelOneDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelTwoDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelThreeDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberOne.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberTwo.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberThree.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberFour.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberFive.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberSix.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberSeven.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberEight.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-        assertEquals(GameScreenPanel.labelInputHistoryNumberNine.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-    }
-
-    //ゲーム画面 ゲームクリアテキスト確認テスト
-    @Test
-    void testGameScreenGameClearEraseInput() {
-        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
-        window.button(String.valueOf(Contents.answer[0])).click();
-        window.button(String.valueOf(Contents.answer[1])).click();
-        window.button(String.valueOf(Contents.answer[2])).click();
-        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         assertEquals(GameScreenPanel.labelInputTimes.getText(),Constants.TEST_DISPLAY_TEXT_INPUT_TIMES);
@@ -219,6 +193,31 @@ class ContentsTest {
     //タイトル画面 ゲーム終了確認テスト
     @Test
     public void testGameScreenGameEnd() {
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_END).click();
+        exit.expectSystemExitWithStatus(0);
+    }
+
+    //全画面遷移実行テスト
+    @Test
+    public void testAllScreenTransition() {
+        window.button(Constants.TEST_DISPLAY_BUTTON_RULE_DESCRIPTION).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GIVE_UP).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
+        Contents.tryTimes = Constants.TEST_TRY_TIMES_GAME_OVER;
+        GameScreenPanel.labelOneDigits.setText(Constants.TEST_INPUT_NUMBER_ONE);
+        GameScreenPanel.labelTwoDigits.setText(Constants.TEST_INPUT_NUMBER_TWO);
+        GameScreenPanel.labelThreeDigits.setText(Constants.TEST_INPUT_NUMBER_THREE);
+        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
+        GameScreenPanel.labelOneDigits.setText(String.valueOf(Contents.answer[0]));
+        GameScreenPanel.labelTwoDigits.setText(String.valueOf(Contents.answer[1]));
+        GameScreenPanel.labelThreeDigits.setText(String.valueOf(Contents.answer[2]));
+        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_GAME_END).click();
         exit.expectSystemExitWithStatus(0);
     }

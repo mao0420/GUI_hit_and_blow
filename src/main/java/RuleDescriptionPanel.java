@@ -13,6 +13,8 @@ public class RuleDescriptionPanel extends Container {
         labelRule = new JLabel(Constants.DISPLAY_TEXT_RULE_DESCRIPTION);
         buttonBack = new JButton(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
 
+        buttonBack.setName(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
+
         setFontInRuleDescriptionPanel();
         setAlignmentInRuleDescriptionPanel();
         setActionInRuleDescriptionPanel(actionListener);
