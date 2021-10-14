@@ -13,6 +13,8 @@ public class GameClearPanel extends Container {
         labelResult = new JLabel(Constants.DISPLAY_TEXT_GAME_CLEAR_RESULT);
         buttonBackToTitle = new JButton(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
 
+        buttonBackToTitle.setName(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
+
         setFontInGameClearPanel();
         setAlignmentInGameClearPanel();
         setActionInGameClearPanel(actionListener);

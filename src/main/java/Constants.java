@@ -89,13 +89,18 @@ public class Constants {
     public static final String CARD_GAME_CLEAR = "CardGameClear";
     public static final String CARD_GAME_OVER = "CardGameOver";
     public static final String BUTTON_GAME_END = "ButtonTitleScreenGameEnd";
+    public static final String TEST_DISPLAY_BUTTON_GAME_START = "ゲームスタート";
+    public static final String TEST_DISPLAY_BUTTON_RULE_DESCRIPTION = "ルール説明";
+    public static final String TEST_DISPLAY_BUTTON_GAME_END = "ゲーム終了";
     public static final String TEST_DISPLAY_NUMBER_NOT_INPUT = "-";
+    public static final String TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT = "-:-:-";
     public static final String TEST_INPUT_NUMBER_ONE = "1";
     public static final String TEST_INPUT_NUMBER_TWO = "2";
     public static final String TEST_INPUT_NUMBER_THREE = "3";
     public static final String TEST_DISPLAY_BUTTON_RESET = "リセット";
     public static final String TEST_DISPLAY_BUTTON_CONFIRM = "確定";
     public static final String TEST_DISPLAY_BUTTON_GIVE_UP = "ギブアップ";
+    public static final String TEST_DISPLAY_TEXT_INPUT_TIMES = "入力回数:0回";
     public static final String TEST_DISPLAY_TEXT_INPUT_SPACE = "";
     public static final int TEST_ELEMENT_DIGITS = 3;
     public static final int TEST_HIT_ZERO = 0;
@@ -106,6 +111,8 @@ public class Constants {
     public static final int TEST_BLOW_ONE = 1;
     public static final int TEST_BLOW_TWO = 2;
     public static final int TEST_BLOW_THREE = 3;
+    public static final int TEST_CONSTANT_ARRAY_HIT_COUNTER = 0;
+    public static final int TEST_CONSTANT_ARRAY_BLOW_COUNTER = 1;
     public static final int TEST_TRY_TIMES_GAME_OVER = 9;
     public static final String TEST_DISPLAY_TEXT_GAME_CLEAR_RESULT = """
             <html><body align=center>ゲームクリア！<br/>
@@ -119,6 +126,7 @@ public class Constants {
             <br/><br/>
             正解の数字は%sでした！<br/><br/></body align=center></html>
             """;
+    public static final String TEST_DISPLAY_BUTTON_BACK_TO_TITLE = "タイトルに戻る";
     public static final String TEST_DISPLAY_TEXT_RULE_DESCRIPTION = """
             <html>ヒット&ブローはプログラム側がランダムで設定した数字を当てるゲームです。<br/>
             <br/>

@@ -13,6 +13,8 @@ public class GameOverPanel extends Container {
         labelResult = new JLabel(Constants.DISPLAY_TEXT_GAME_OVER_RESULT);
         buttonBackToTitle = new JButton(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
 
+        buttonBackToTitle.setName(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
+
         setFontInGameOverPanel();
         setAlignmentInGameOverPanel();
         setActionInGameOverPanel(actionListener);

@@ -31,7 +31,7 @@ class ContentsTest {
     //ゲーム説明画面 文言確認テスト
     @Test
     void testTitleScreenTransitionGameScreen() {
-        window.button(Constants.DISPLAY_BUTTON_RULE_DESCRIPTION).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_RULE_DESCRIPTION).click();
         assertEquals(Constants.DISPLAY_TEXT_RULE_DESCRIPTION, Constants.TEST_DISPLAY_TEXT_RULE_DESCRIPTION);
     }
 
@@ -49,7 +49,7 @@ class ContentsTest {
         String testInputDigitsOne = testNumber.get(0);
         String testInputDigitsTwo = testNumber.get(1);
         String testInputDigitsThree = testNumber.get(2);
-        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         window.button(testInputDigitsOne).click();
         window.button(testInputDigitsTwo).click();
         window.button(testInputDigitsThree).click();
@@ -61,7 +61,7 @@ class ContentsTest {
     //ゲーム画面 リセットボタンテスト
     @Test
     void testGameScreenInputReset() {
-        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
         window.button(Constants.TEST_INPUT_NUMBER_TWO).click();
         window.button(Constants.TEST_INPUT_NUMBER_THREE).click();
@@ -74,7 +74,7 @@ class ContentsTest {
     //ゲーム画面 履歴保存テスト
     @Test
     void testGameScreenInputHistory() {
-        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         String[][] testHistory = new String[9][Constants.CONSTANT_DIGIT_NUMBER];
         //0～9格納用のリストを作成
         ArrayList<String> testNumber = new ArrayList<>();
@@ -106,7 +106,7 @@ class ContentsTest {
     //ゲーム画面 未入力エラーメッセージテスト
     @Test
     void testGameScreenNotInputErrorMessage() {
-        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
         assertEquals(GameScreenPanel.labelErrorMessage.getText(), Constants.TEST_DISPLAY_TEXT_ERROR_NOT_INPUT_MESSAGE);
     }
@@ -114,7 +114,7 @@ class ContentsTest {
     //ゲーム画面 重複エラーメッセージテスト
     @Test
     void testGameScreenDuplicationErrorMessage() {
-        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
         window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
         window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
@@ -125,7 +125,7 @@ class ContentsTest {
     //ゲーム画面 正常入力時エラーメッセージ消去テスト
     @Test
     void testGameScreenErrorMessageErasure() {
-        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
         window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
         window.button(Constants.TEST_INPUT_NUMBER_TWO).click();
@@ -137,7 +137,7 @@ class ContentsTest {
     //ゲーム画面 ギブアップ選択時テキスト確認テスト
     @Test
     void testGameScreenInputGiveUp() {
-        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_GIVE_UP).click();
         assertEquals(GameOverPanel.labelResult.getText(), String.format(Constants.TEST_DISPLAY_TEXT_GAME_OVER_RESULT, Arrays.toString(Contents.answer)));
     }
@@ -145,7 +145,7 @@ class ContentsTest {
     //ゲーム画面 ゲームオーバーテキスト確認テスト
     @Test
     void testGameScreenGameOverTransition() {
-        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         Contents.tryTimes = Constants.TEST_TRY_TIMES_GAME_OVER;
         window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
         window.button(Constants.TEST_INPUT_NUMBER_TWO).click();
@@ -157,7 +157,7 @@ class ContentsTest {
     //ゲーム画面 ゲームクリアテキスト確認テスト
     @Test
     void testGameScreenGameClearTransition() {
-        window.button(Constants.DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
         window.button(String.valueOf(Contents.answer[0])).click();
         window.button(String.valueOf(Contents.answer[1])).click();
         window.button(String.valueOf(Contents.answer[2])).click();
@@ -165,13 +165,87 @@ class ContentsTest {
         assertEquals(GameClearPanel.labelResult.getText(), String.format(Constants.TEST_DISPLAY_TEXT_GAME_CLEAR_RESULT, Arrays.toString(Contents.answer), Contents.tryTimes));
     }
 
+    //ゲーム画面 ギブアップ選択時入力数値消去確認テスト
+    @Test
+    void testGameScreenGiveUpEraseInput() {
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GIVE_UP).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
+        assertEquals(GameScreenPanel.labelInputTimes.getText(),Constants.TEST_DISPLAY_TEXT_INPUT_TIMES);
+        assertEquals(GameScreenPanel.labelOneDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelTwoDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelThreeDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberOne.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberTwo.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberThree.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberFour.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberFive.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberSix.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberSeven.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberEight.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberNine.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+    }
+
+    //ゲーム画面 ゲームオーバー時入力数値消去確認テスト
+    @Test
+    void testGameScreenGameOverEraseInput() {
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
+        Contents.tryTimes = Constants.TEST_TRY_TIMES_GAME_OVER;
+        window.button(Constants.TEST_INPUT_NUMBER_ONE).click();
+        window.button(Constants.TEST_INPUT_NUMBER_TWO).click();
+        window.button(Constants.TEST_INPUT_NUMBER_THREE).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
+        assertEquals(GameScreenPanel.labelInputTimes.getText(),Constants.TEST_DISPLAY_TEXT_INPUT_TIMES);
+        assertEquals(GameScreenPanel.labelOneDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelTwoDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelThreeDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberOne.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberTwo.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberThree.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberFour.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberFive.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberSix.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberSeven.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberEight.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberNine.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+    }
+
+    //ゲーム画面 ゲームクリアテキスト確認テスト
+    @Test
+    void testGameScreenGameClearEraseInput() {
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
+        window.button(String.valueOf(Contents.answer[0])).click();
+        window.button(String.valueOf(Contents.answer[1])).click();
+        window.button(String.valueOf(Contents.answer[2])).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
+        assertEquals(GameScreenPanel.labelInputTimes.getText(),Constants.TEST_DISPLAY_TEXT_INPUT_TIMES);
+        assertEquals(GameScreenPanel.labelOneDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelTwoDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelThreeDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberOne.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberTwo.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberThree.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberFour.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberFive.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberSix.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberSeven.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberEight.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        assertEquals(GameScreenPanel.labelInputHistoryNumberNine.getText(), Constants.TEST_DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+    }
+
     // @Ruleアノテーションと共に、ExpectedSystemExitクラスのインスタンス作成
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
+    //タイトル画面 ゲーム終了確認テスト
     @Test
     public void testGameScreenGameEnd() {
-        window.button(Constants.DISPLAY_BUTTON_GAME_END).click();
+        window.button(Constants.TEST_DISPLAY_BUTTON_GAME_END).click();
         exit.expectSystemExitWithStatus(0);
     }
 
@@ -192,7 +266,7 @@ class ContentsTest {
         int[] answer = {0, 1, 2};
         int[] input = {3, 4, 5};
         int[] actual = Contents.getHitBlow(answer, input);
-        assertEquals(expect, actual[Constants.CONSTANT_ARRAY_HIT_COUNTER]);
+        assertEquals(expect, actual[Constants.TEST_CONSTANT_ARRAY_HIT_COUNTER]);
     }
 
     //ヒットブロー計算メソッド ヒット数1テスト
@@ -202,7 +276,7 @@ class ContentsTest {
         int[] answer = {0, 1, 2};
         int[] input = {0, 3, 4};
         int[] actual = Contents.getHitBlow(answer, input);
-        assertEquals(expect, actual[Constants.CONSTANT_ARRAY_HIT_COUNTER]);
+        assertEquals(expect, actual[Constants.TEST_CONSTANT_ARRAY_HIT_COUNTER]);
     }
 
     //ヒットブロー計算メソッド ヒット数2テスト
@@ -212,7 +286,7 @@ class ContentsTest {
         int[] answer = {0, 1, 2};
         int[] input = {0, 1, 3};
         int[] actual = Contents.getHitBlow(answer, input);
-        assertEquals(expect, actual[Constants.CONSTANT_ARRAY_HIT_COUNTER]);
+        assertEquals(expect, actual[Constants.TEST_CONSTANT_ARRAY_HIT_COUNTER]);
     }
 
     //ヒットブロー計算メソッド ヒット数3テスト
@@ -222,7 +296,7 @@ class ContentsTest {
         int[] answer = {0, 1, 2};
         int[] input = {0, 1, 2};
         int[] actual = Contents.getHitBlow(answer, input);
-        assertEquals(expect, actual[Constants.CONSTANT_ARRAY_HIT_COUNTER]);
+        assertEquals(expect, actual[Constants.TEST_CONSTANT_ARRAY_HIT_COUNTER]);
     }
 
     //ヒットブロー計算メソッド ブロー数0テスト
@@ -232,7 +306,7 @@ class ContentsTest {
         int[] answer = {0, 1, 2};
         int[] input = {0, 1, 2};
         int[] actual = Contents.getHitBlow(answer, input);
-        assertEquals(expect, actual[Constants.CONSTANT_ARRAY_BLOW_COUNTER]);
+        assertEquals(expect, actual[Constants.TEST_CONSTANT_ARRAY_BLOW_COUNTER]);
     }
 
     //ヒットブロー計算メソッド ブロー数1テスト
@@ -242,7 +316,7 @@ class ContentsTest {
         int[] answer = {0, 1, 2};
         int[] input = {2, 3, 4};
         int[] actual = Contents.getHitBlow(answer, input);
-        assertEquals(expect, actual[Constants.CONSTANT_ARRAY_BLOW_COUNTER]);
+        assertEquals(expect, actual[Constants.TEST_CONSTANT_ARRAY_BLOW_COUNTER]);
     }
 
     //ヒットブロー計算メソッド ブロー数2テスト
@@ -252,7 +326,7 @@ class ContentsTest {
         int[] answer = {0, 1, 2};
         int[] input = {1, 2, 3};
         int[] actual = Contents.getHitBlow(answer, input);
-        assertEquals(expect, actual[Constants.CONSTANT_ARRAY_BLOW_COUNTER]);
+        assertEquals(expect, actual[Constants.TEST_CONSTANT_ARRAY_BLOW_COUNTER]);
     }
 
     //ヒットブロー計算メソッド ブロー数3テスト
@@ -262,6 +336,6 @@ class ContentsTest {
         int[] answer = {0, 1, 2};
         int[] input = {2, 0, 1};
         int[] actual = Contents.getHitBlow(answer, input);
-        assertEquals(expect, actual[Constants.CONSTANT_ARRAY_BLOW_COUNTER]);
+        assertEquals(expect, actual[Constants.TEST_CONSTANT_ARRAY_BLOW_COUNTER]);
     }
 }
