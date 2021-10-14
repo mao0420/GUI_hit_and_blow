@@ -87,9 +87,9 @@ class ContentsTest {
             testHistory[i][0] = testNumber.get(0);
             testHistory[i][1] = testNumber.get(1);
             testHistory[i][2] = testNumber.get(2);
-            window.button(testNumber.get(0)).click();
-            window.button(testNumber.get(1)).click();
-            window.button(testNumber.get(2)).click();
+            GameScreenPanel.labelOneDigits.setText(testNumber.get(0));
+            GameScreenPanel.labelTwoDigits.setText(testNumber.get(1));
+            GameScreenPanel.labelThreeDigits.setText(testNumber.get(2));
             window.button(Constants.TEST_DISPLAY_BUTTON_CONFIRM).click();
         }
         assertThat(GameScreenPanel.labelInputHistoryNumberOne.getText()).matches(Pattern.compile("\\[" + testHistory[0][0] + ", " + testHistory[0][1] + ", " + testHistory[0][2] + "]:[0-3]:[0-3]"));
