@@ -86,18 +86,10 @@ public class Contents extends JFrame implements ActionListener {
             tryTimes = Constants.CONSTANT_TRY_TIMES_COUNT_FORMAT;
             String setTryTimes = String.format(Constants.DISPLAY_TEXT_INPUT_TIMES, tryTimes);
             GameScreenPanel.labelInputTimes.setText(setTryTimes);
-            GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-            GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-            GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-            GameScreenPanel.labelInputHistoryNumberOne.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-            GameScreenPanel.labelInputHistoryNumberTwo.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-            GameScreenPanel.labelInputHistoryNumberThree.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-            GameScreenPanel.labelInputHistoryNumberFour.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-            GameScreenPanel.labelInputHistoryNumberFive.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-            GameScreenPanel.labelInputHistoryNumberSix.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-            GameScreenPanel.labelInputHistoryNumberSeven.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-            GameScreenPanel.labelInputHistoryNumberEight.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
-            GameScreenPanel.labelInputHistoryNumberNine.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+            //入力内容初期化メソッド
+            inputDigitsInitializing();
+            //入力履歴初期化メソッド
+            inputHistoryNumberInitializing();
             GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_INPUT_SPACE);
         } else if (cmd.matches(Constants.CARD_GAME_OVER)) {
             //ギブアップボタンクリック時
@@ -118,9 +110,8 @@ public class Contents extends JFrame implements ActionListener {
             }
         } else if (cmd.equals(Constants.DISPLAY_BUTTON_RESET)) {
             //ゲーム画面にてリセットボタンクリック時
-            GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-            GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-            GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            //入力内容初期化メソッド
+            inputDigitsInitializing();
         } else if (cmd.equals(Constants.DISPLAY_BUTTON_CONFIRM)) {
             //ゲーム画面にて確定ボタンクリック時
             tryTimes = judge(tryTimes, answer);
@@ -167,9 +158,8 @@ public class Contents extends JFrame implements ActionListener {
     public int judge(int tryTimes, int[] answer) {
         if (GameScreenPanel.labelThreeDigits.getText().equals(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT)){
             //3桁目まで数字が入力されているか確認
-            GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-            GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-            GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            //入力内容初期化メソッド
+            inputDigitsInitializing();
             GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_ERROR_NOT_INPUT_MESSAGE);
             return tryTimes;
         }
@@ -183,9 +173,8 @@ public class Contents extends JFrame implements ActionListener {
         inputArray[2] = Integer.parseInt(GameScreenPanel.labelThreeDigits.getText());
         if (inputArray[0] == inputArray[1] || inputArray[0] == inputArray[2] || inputArray[1] == inputArray[2]) {
             //数値の重複確認
-            GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-            GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-            GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+            //入力内容初期化メソッド
+            inputDigitsInitializing();
             GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_ERROR_DUPLICATION_MESSAGE);
             return tryTimes;
         }
@@ -230,9 +219,8 @@ public class Contents extends JFrame implements ActionListener {
         } else if (tryTimes == 9) {
             GameScreenPanel.labelInputHistoryNumberNine.setText(inputHistory);
         }
-        GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-        GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
-        GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+        //入力内容初期化メソッド
+        inputDigitsInitializing();
         GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_INPUT_SPACE);
         return tryTimes;
     }
@@ -273,5 +261,31 @@ public class Contents extends JFrame implements ActionListener {
         hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER] = hitCounter;
         hitBlowCounter[Constants.CONSTANT_ARRAY_BLOW_COUNTER] = blowCounter;
         return hitBlowCounter;
+    }
+
+    /**
+     * 入力内容初期化メソッド
+     * ゲーム画面で入力された内容を初期状態に戻す。
+     */
+    private void inputDigitsInitializing() {
+        GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+        GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+        GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
+    }
+
+    /**
+     * 入力履歴初期化メソッド
+     * ゲーム画面で格納された履歴を初期状態に戻す。
+     */
+    private void inputHistoryNumberInitializing() {
+        GameScreenPanel.labelInputHistoryNumberOne.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        GameScreenPanel.labelInputHistoryNumberTwo.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        GameScreenPanel.labelInputHistoryNumberThree.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        GameScreenPanel.labelInputHistoryNumberFour.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        GameScreenPanel.labelInputHistoryNumberFive.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        GameScreenPanel.labelInputHistoryNumberSix.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        GameScreenPanel.labelInputHistoryNumberSeven.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        GameScreenPanel.labelInputHistoryNumberEight.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+        GameScreenPanel.labelInputHistoryNumberNine.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
     }
 }
