@@ -29,7 +29,7 @@ public class Contents extends JFrame implements ActionListener {
 
     /**
      * コンテンツ
-     * 各画面のパネルの初期設定を実施する。
+     * 各画面のパネルを初期設定する。
      */
     public Contents() {
         //タイトル画面カード
@@ -266,7 +266,7 @@ public class Contents extends JFrame implements ActionListener {
 
     /**
      * 入力内容初期化メソッド
-     * ゲーム画面で入力された内容を初期状態に戻す。
+     * ゲーム画面で入力された内容を初期状態へ変更する。
      */
     private void inputDigitsInitializing() {
         GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT);
@@ -276,7 +276,7 @@ public class Contents extends JFrame implements ActionListener {
 
     /**
      * 入力履歴初期化メソッド
-     * ゲーム画面で格納された履歴を初期状態に戻す。
+     * ゲーム画面で格納された履歴を初期状態へ変更する。
      */
     private void inputHistoryNumberInitializing() {
         GameScreenPanel.labelInputHistoryNumberOne.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
