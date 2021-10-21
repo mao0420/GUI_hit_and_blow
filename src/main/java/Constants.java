@@ -1,6 +1,8 @@
 public class Constants {
     public static final String DISPLAY_NAME_FRAME_TITLE = "Hit & Blow";
     public static final String DISPLAY_TEXT_TITLE = "Hit & Blow";
+    public static final int SIZE_FRAME_WIDTH = 800;
+    public static final int SIZE_FRAME_HEIGHT = 600;
     public static final String DISPLAY_BUTTON_GAME_START = "ゲームスタート";
     public static final String DISPLAY_BUTTON_RULE_DESCRIPTION = "ルール説明";
     public static final String DISPLAY_BUTTON_GAME_END = "ゲーム終了";
@@ -25,16 +27,20 @@ public class Constants {
     public static final String DISPLAY_BUTTON_GIVE_UP = "ギブアップ";
     public static final String DISPLAY_TEXT_INPUT_TIMES = "入力回数:%d回";
     public static final String DISPLAY_TEXT_INPUT_SPACE = "";
+    public static final int SIZE_TEXT_TITLE = 100;
     public static final int SIZE_TEXT_INPUT_HISTORY_MESSAGE = 24;
     public static final int SIZE_TEXT_INPUT_HISTORY_DESCRIPTION = 18;
     public static final int SIZE_TEXT_INPUT_HISTORY_NUMBER = 20;
     public static final int SIZE_TEXT_DISPLAY_NUMBER = 28;
-    public static final int SIZE_NUMBER_BUTTON_NUMBER = 24;
+    public static final int SIZE_SCREEN_TRANSITION_BUTTON = 30;
+    public static final int SIZE_NUMBER_BUTTON = 24;
     public static final int SIZE_NUMBER_BUTTON_RESET = 12;
     public static final int SIZE_NUMBER_BUTTON_CONFIRM = 16;
     public static final int SIZE_NUMBER_BUTTON_GIVE_UP = 10;
     public static final int SIZE_TEXT_INPUT_TIMES = 16;
     public static final int SIZE_TEXT_ERROR_MESSAGE = 16;
+    public static final int SIZE_TEXT_RULE_DESCRIPTION = 18;
+    public static final int SIZE_TEXT_GAME_COMPLETE = 30;
     public static final int SIZE_NUMBER_BUTTON_WIDTH = 90;
     public static final int SIZE_NUMBER_BUTTON_HEIGHT = 50;
     public static final int CONSTANT_DIGIT_NUMBER = 3;

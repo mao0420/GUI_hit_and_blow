@@ -37,8 +37,8 @@ public class GameClearPanel extends Container {
      * ゲームクリアパネル内で使用されるボタンやラベルのフォントを設定する。
      */
     private void setFontInGameClearPanel() {
-        labelResult.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 30));
-        buttonBackToTitle.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 30));
+        labelResult.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_GAME_COMPLETE));
+        buttonBackToTitle.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_SCREEN_TRANSITION_BUTTON));
     }
 
     /**

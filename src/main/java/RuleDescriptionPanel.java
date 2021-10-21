@@ -37,8 +37,8 @@ public class RuleDescriptionPanel extends Container {
      * ルール説明パネル内で使用されるボタンやラベルのフォントを設定する。
      */
     private void setFontInRuleDescriptionPanel() {
-        labelRule.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 18));
-        buttonBack.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 30));
+        labelRule.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_RULE_DESCRIPTION));
+        buttonBack.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_SCREEN_TRANSITION_BUTTON));
     }
 
     /**

@@ -41,10 +41,6 @@ public class TitleScreenPanel extends JPanel {
         this.add(Box.createGlue());
         this.add(buttonGameEnd);
         this.add(Box.createGlue());
-//        //ゲームクリア画面デバッグ用
-//        this.add(buttonTitleScreenGameClear);
-//        //ゲームオーバー画面デバッグ用
-//        this.add(buttonTitleScreenGameOver);
     }
 
     /**
@@ -52,10 +48,10 @@ public class TitleScreenPanel extends JPanel {
      * タイトル画面パネル内で使用されるボタンやラベルのフォントを設定する。
      */
     private void setFontInTitleScreenPanel() {
-        labelTitle.setFont(new Font(Font.DIALOG_INPUT, Font.PLAIN, 100));
-        buttonGameStart.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-        buttonRuleDescription.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-        buttonGameEnd.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
+        labelTitle.setFont(new Font(Font.DIALOG_INPUT, Font.PLAIN, Constants.SIZE_TEXT_TITLE));
+        buttonGameStart.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_SCREEN_TRANSITION_BUTTON));
+        buttonRuleDescription.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_SCREEN_TRANSITION_BUTTON));
+        buttonGameEnd.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_SCREEN_TRANSITION_BUTTON));
     }
 
     /**

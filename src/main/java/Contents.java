@@ -21,7 +21,7 @@ public class Contents extends JFrame implements ActionListener {
     public static void main(String[] args) {
         Contents frame = new Contents();
         frame.setTitle(Constants.DISPLAY_NAME_FRAME_TITLE);
-        frame.setSize(800, 600);
+        frame.setSize(Constants.SIZE_FRAME_WIDTH, Constants.SIZE_FRAME_HEIGHT);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
