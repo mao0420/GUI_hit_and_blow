@@ -10,7 +10,7 @@ public class TitleScreenPanel extends JPanel {
     private final JButton buttonGameEnd;
 
     /**
-     * タイトル画面パネルメソッド
+     * タイトル画面パネルコンストラクタ
      * タイトル時の画面を設定する。
      *
      * @param actionListener パネル内でのアクションを判定

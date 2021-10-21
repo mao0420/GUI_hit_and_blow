@@ -19,16 +19,22 @@ public class Contents extends JFrame implements ActionListener {
      * @param args メインメソッド実行用の引数
      */
     public static void main(String[] args) {
+        //フレームの定義
         Contents frame = new Contents();
+        //フレームのタイトルを設定
         frame.setTitle(Constants.DISPLAY_NAME_FRAME_TITLE);
+        //ウインドウサイズを設定
         frame.setSize(Constants.SIZE_FRAME_WIDTH, Constants.SIZE_FRAME_HEIGHT);
+        //ウインドウをモニタの中央に表示
         frame.setLocationRelativeTo(null);
+        //閉じるボタンで終了時にプログラムを終了
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //フレームの表示
         frame.setVisible(true);
     }
 
     /**
-     * コンテンツ
+     * コンテンツコンストラクタ
      * 各画面のパネルを初期設定する。
      */
     public Contents() {
@@ -62,12 +68,14 @@ public class Contents extends JFrame implements ActionListener {
         layout = new CardLayout();
         cardPanel.setLayout(layout);
 
+        //カードを追加
         cardPanel.add(cardTitleScreen, Constants.CARD_TITLE_SCREEN);
         cardPanel.add(cardGameScreen, Constants.CARD_GAME_SCREEN);
         cardPanel.add(cardRuleDescription, Constants.CARD_RULE_DESCRIPTION);
         cardPanel.add(cardGameClear, Constants.CARD_GAME_CLEAR);
         cardPanel.add(cardGameOver, Constants.CARD_GAME_OVER);
 
+        //カードを表示
         getContentPane().add(cardPanel, BorderLayout.CENTER);
     }
 

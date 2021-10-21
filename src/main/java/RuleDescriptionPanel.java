@@ -8,7 +8,7 @@ public class RuleDescriptionPanel extends Container {
     private final JButton buttonBack;
 
     /**
-     * ルール説明パネルメソッド
+     * ルール説明パネルコンストラクタ
      * ルール説明時の画面を設定する。
      *
      * @param actionListener パネル内でのアクションを判定

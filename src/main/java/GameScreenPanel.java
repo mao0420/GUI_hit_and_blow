@@ -40,7 +40,7 @@ public class GameScreenPanel extends JPanel {
     private final JLabel labelInputSpaceCenter;
 
     /**
-     * ゲーム画面パネルメソッド
+     * ゲーム画面パネルコンストラクタ
      * ゲーム時の画面を設定する。
      *
      * @param actionListener パネル内でのアクションを判定

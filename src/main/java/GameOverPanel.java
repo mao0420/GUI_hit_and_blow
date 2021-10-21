@@ -8,7 +8,7 @@ public class GameOverPanel extends Container {
     private final JButton buttonBackToTitle;
 
     /**
-     * ゲームオーバーパネルメソッド
+     * ゲームオーバーパネルコンストラクタ
      * ゲームオーバー時の画面を設定する。
      *
      * @param actionListener パネル内でのアクションを判定

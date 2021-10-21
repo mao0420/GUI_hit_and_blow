@@ -8,7 +8,7 @@ public class GameClearPanel extends Container {
     private final JButton buttonBackToTitle;
 
     /**
-     * ゲームクリアパネルメソッド
+     * ゲームクリアパネルコンストラクタ
      * ゲームクリア時の画面を設定する。
      *
      * @param actionListener パネル内でのアクションを判定
