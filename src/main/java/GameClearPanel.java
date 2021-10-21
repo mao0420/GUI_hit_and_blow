@@ -21,8 +21,11 @@ public class GameClearPanel extends Container {
 
         buttonBackToTitle.setName(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
 
+        //フォント設定メソッドへ
         setFontInGameClearPanel();
+        //配置場所設定メソッドへ
         setAlignmentInGameClearPanel();
+        //アクション設定メソッドへ
         setActionInGameClearPanel(actionListener);
 
         this.add(Box.createGlue());

@@ -26,9 +26,13 @@ public class TitleScreenPanel extends JPanel {
         buttonRuleDescription.setName(Constants.DISPLAY_BUTTON_RULE_DESCRIPTION);
         buttonGameEnd.setName(Constants.DISPLAY_BUTTON_GAME_END);
 
+        //フォント設定メソッドへ
         setFontInTitleScreenPanel();
+        //サイズ設定メソッドへ
         buttonSettingsInTitleScreenPanel();
+        //配置場所設定メソッドへ
         setAlignmentInTitleScreenPanel();
+        //アクション設定メソッドへ
         setActionInTitleScreenPanel(actionListener);
 
         this.add(Box.createGlue());

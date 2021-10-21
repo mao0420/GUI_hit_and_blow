@@ -21,8 +21,11 @@ public class GameOverPanel extends Container {
 
         buttonBackToTitle.setName(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
 
+        //フォント設定メソッドへ
         setFontInGameOverPanel();
+        //配置場所設定メソッドへ
         setAlignmentInGameOverPanel();
+        //アクション設定メソッドへ
         setActionInGameOverPanel(actionListener);
 
         this.add(Box.createGlue());

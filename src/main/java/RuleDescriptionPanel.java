@@ -21,8 +21,11 @@ public class RuleDescriptionPanel extends Container {
 
         buttonBack.setName(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
 
+        //フォント設定メソッドへ
         setFontInRuleDescriptionPanel();
+        //配置場所設定メソッドへ
         setAlignmentInRuleDescriptionPanel();
+        //アクション設定メソッドへ
         setActionInRuleDescriptionPanel(actionListener);
 
         this.add(Box.createGlue());

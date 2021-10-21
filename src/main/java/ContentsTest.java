@@ -171,7 +171,7 @@ class ContentsTest {
         window.button(Constants.TEST_DISPLAY_BUTTON_GIVE_UP).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_BACK_TO_TITLE).click();
         window.button(Constants.TEST_DISPLAY_BUTTON_GAME_START).click();
-        assertEquals(GameScreenPanel.labelInputTimes.getText(),Constants.TEST_DISPLAY_TEXT_INPUT_TIMES);
+        assertEquals(GameScreenPanel.labelInputTimes.getText(), Constants.TEST_DISPLAY_TEXT_INPUT_TIMES);
         assertEquals(GameScreenPanel.labelOneDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
         assertEquals(GameScreenPanel.labelTwoDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);
         assertEquals(GameScreenPanel.labelThreeDigits.getText(), Constants.TEST_DISPLAY_NUMBER_NOT_INPUT);

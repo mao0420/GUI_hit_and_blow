@@ -100,9 +100,13 @@ public class GameScreenPanel extends JPanel {
         buttonConfirm.setName(Constants.DISPLAY_BUTTON_CONFIRM);
         buttonGiveUp.setName(Constants.DISPLAY_BUTTON_GIVE_UP);
 
+        //フォント設定メソッドへ
         setFontInGameScreenPanel();
+        //サイズ設定メソッドへ
         buttonSettingsInGameScreenPanel();
+        //配置場所設定メソッドへ
         setPositionInGameScreenPanel(positionPreference, gbLayout);
+        //アクション設定メソッドへ
         setActionInSettingsInGameScreenPanel(actionListener);
 
         this.add(labelOneDigits);

@@ -82,13 +82,14 @@ public class Contents extends JFrame implements ActionListener {
         if (Constants.CARD_GAME_SCREEN.equals(cmd)) {
             //ゲーム開始ボタンクリック時
             layout.show(cardPanel, cmd);
+            //正解設定メソッドへ
             answer = correctAnswerNumber();
             tryTimes = Constants.CONSTANT_TRY_TIMES_COUNT_FORMAT;
             String setTryTimes = String.format(Constants.DISPLAY_TEXT_INPUT_TIMES, tryTimes);
             GameScreenPanel.labelInputTimes.setText(setTryTimes);
-            //入力内容初期化メソッド
+            //入力内容初期化メソッドへ
             inputDigitsInitializing();
-            //入力履歴初期化メソッド
+            //入力履歴初期化メソッドへ
             inputHistoryNumberInitializing();
             GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_INPUT_SPACE);
         } else if (Constants.CARD_GAME_OVER.matches(cmd)) {
@@ -96,7 +97,7 @@ public class Contents extends JFrame implements ActionListener {
             layout.show(cardPanel, Constants.CARD_GAME_OVER);
             String setGameOverResult = String.format(Constants.DISPLAY_TEXT_GAME_OVER_RESULT, Arrays.toString(answer));
             GameOverPanel.labelResult.setText(setGameOverResult);
-        }else if (cmd.matches("^Card.*")) {
+        } else if (cmd.matches("^Card.*")) {
             //その他画面遷移用ボタンクリック時
             layout.show(cardPanel, cmd);
         } else if (cmd.matches("[0-9]")) {
@@ -110,7 +111,7 @@ public class Contents extends JFrame implements ActionListener {
             }
         } else if (Constants.DISPLAY_BUTTON_RESET.equals(cmd)) {
             //ゲーム画面にてリセットボタンクリック時
-            //入力内容初期化メソッド
+            //入力内容初期化メソッドへ
             inputDigitsInitializing();
         } else if (Constants.DISPLAY_BUTTON_CONFIRM.equals(cmd)) {
             //ゲーム画面にて確定ボタンクリック時
@@ -151,14 +152,14 @@ public class Contents extends JFrame implements ActionListener {
      * 判定メソッド
      * 入力された数値と正解の数値を比較し、一致しているか処理を行い、入力履歴に格納する。
      *
-     * @param tryTimes     現在が何回目の入力か
-     * @param answer       正解の数値
+     * @param tryTimes 現在が何回目の入力か
+     * @param answer   正解の数値
      * @return tryTimesの数値を返す
      */
     public int judge(int tryTimes, int[] answer) {
-        if (Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT.equals(GameScreenPanel.labelThreeDigits.getText())){
+        if (Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT.equals(GameScreenPanel.labelThreeDigits.getText())) {
             //3桁目まで数字が入力されているか確認
-            //入力内容初期化メソッド
+            //入力内容初期化メソッドへ
             inputDigitsInitializing();
             GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_ERROR_NOT_INPUT_MESSAGE);
             return tryTimes;
@@ -173,7 +174,7 @@ public class Contents extends JFrame implements ActionListener {
         inputArray[2] = Integer.parseInt(GameScreenPanel.labelThreeDigits.getText());
         if (inputArray[0] == inputArray[1] || inputArray[0] == inputArray[2] || inputArray[1] == inputArray[2]) {
             //数値の重複確認
-            //入力内容初期化メソッド
+            //入力内容初期化メソッドへ
             inputDigitsInitializing();
             GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_ERROR_DUPLICATION_MESSAGE);
             return tryTimes;
@@ -219,7 +220,7 @@ public class Contents extends JFrame implements ActionListener {
         } else if (9 == tryTimes) {
             GameScreenPanel.labelInputHistoryNumberNine.setText(inputHistory);
         }
-        //入力内容初期化メソッド
+        //入力内容初期化メソッドへ
         inputDigitsInitializing();
         GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_INPUT_SPACE);
         return tryTimes;
