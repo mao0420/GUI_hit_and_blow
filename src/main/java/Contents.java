@@ -79,7 +79,7 @@ public class Contents extends JFrame implements ActionListener {
      */
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
-        if (cmd.equals(Constants.CARD_GAME_SCREEN)) {
+        if (Constants.CARD_GAME_SCREEN.equals(cmd)) {
             //ゲーム開始ボタンクリック時
             layout.show(cardPanel, cmd);
             answer = correctAnswerNumber();
@@ -91,7 +91,7 @@ public class Contents extends JFrame implements ActionListener {
             //入力履歴初期化メソッド
             inputHistoryNumberInitializing();
             GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_INPUT_SPACE);
-        } else if (cmd.matches(Constants.CARD_GAME_OVER)) {
+        } else if (Constants.CARD_GAME_OVER.matches(cmd)) {
             //ギブアップボタンクリック時
             layout.show(cardPanel, Constants.CARD_GAME_OVER);
             String setGameOverResult = String.format(Constants.DISPLAY_TEXT_GAME_OVER_RESULT, Arrays.toString(answer));
@@ -108,14 +108,14 @@ public class Contents extends JFrame implements ActionListener {
             } else {
                 GameScreenPanel.labelThreeDigits.setText(cmd);
             }
-        } else if (cmd.equals(Constants.DISPLAY_BUTTON_RESET)) {
+        } else if (Constants.DISPLAY_BUTTON_RESET.equals(cmd)) {
             //ゲーム画面にてリセットボタンクリック時
             //入力内容初期化メソッド
             inputDigitsInitializing();
-        } else if (cmd.equals(Constants.DISPLAY_BUTTON_CONFIRM)) {
+        } else if (Constants.DISPLAY_BUTTON_CONFIRM.equals(cmd)) {
             //ゲーム画面にて確定ボタンクリック時
             tryTimes = judge(tryTimes, answer);
-        } else if (cmd.equals(Constants.BUTTON_GAME_END)) {
+        } else if (Constants.BUTTON_GAME_END.equals(cmd)) {
             //タイトル画面にてゲーム終了ボタンクリック時
             Component c = (Component) e.getSource();
             Window w = SwingUtilities.getWindowAncestor(c);
@@ -156,7 +156,7 @@ public class Contents extends JFrame implements ActionListener {
      * @return tryTimesの数値を返す
      */
     public int judge(int tryTimes, int[] answer) {
-        if (GameScreenPanel.labelThreeDigits.getText().equals(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT)){
+        if (Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT.equals(GameScreenPanel.labelThreeDigits.getText())){
             //3桁目まで数字が入力されているか確認
             //入力内容初期化メソッド
             inputDigitsInitializing();
@@ -200,23 +200,23 @@ public class Contents extends JFrame implements ActionListener {
         //履歴格納用に一時保存
         String inputHistory = String.format(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER, Arrays.toString(inputArray), hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER], hitBlowCounter[Constants.CONSTANT_ARRAY_BLOW_COUNTER]);
         //何回目の入力かを判断
-        if (tryTimes == 1) {
+        if (1 == tryTimes) {
             GameScreenPanel.labelInputHistoryNumberOne.setText(inputHistory);
-        } else if (tryTimes == 2) {
+        } else if (2 == tryTimes) {
             GameScreenPanel.labelInputHistoryNumberTwo.setText(inputHistory);
-        } else if (tryTimes == 3) {
+        } else if (3 == tryTimes) {
             GameScreenPanel.labelInputHistoryNumberThree.setText(inputHistory);
-        } else if (tryTimes == 4) {
+        } else if (4 == tryTimes) {
             GameScreenPanel.labelInputHistoryNumberFour.setText(inputHistory);
-        } else if (tryTimes == 5) {
+        } else if (5 == tryTimes) {
             GameScreenPanel.labelInputHistoryNumberFive.setText(inputHistory);
-        } else if (tryTimes == 6) {
+        } else if (6 == tryTimes) {
             GameScreenPanel.labelInputHistoryNumberSix.setText(inputHistory);
-        } else if (tryTimes == 7) {
+        } else if (7 == tryTimes) {
             GameScreenPanel.labelInputHistoryNumberSeven.setText(inputHistory);
-        } else if (tryTimes == 8) {
+        } else if (8 == tryTimes) {
             GameScreenPanel.labelInputHistoryNumberEight.setText(inputHistory);
-        } else if (tryTimes == 9) {
+        } else if (9 == tryTimes) {
             GameScreenPanel.labelInputHistoryNumberNine.setText(inputHistory);
         }
         //入力内容初期化メソッド
@@ -250,7 +250,7 @@ public class Contents extends JFrame implements ActionListener {
                 //jが3に到達した時ループから脱出し、iのカウンターを増やし再度カウントし直す。
                 if (i != j) {
                     //iとjが同数(ヒットと同じ)の場合は無視して次のループへ。
-                    if (inputArray[i] == answer[j]) {
+                    if (answer[i] == inputArray[j]) {
                         //ブローの処理、iとjが違う数値(桁の位置が違う)の要素内の数値を比較し、数値が同じ場合はブローを加算する。
                         blowCounter++;
                     }
