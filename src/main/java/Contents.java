@@ -12,6 +12,12 @@ public class Contents extends JFrame implements ActionListener {
     //正解の数字を初期化
     static int[] answer = new int[Constants.CONSTANT_DIGIT_NUMBER];
 
+    /**
+     * メインメソッド
+     * 基本となるメソッド、画面やパネルの初期設定を実施する。
+     *
+     * @param args メインメソッド実行用の引数
+     */
     public static void main(String[] args) {
         Contents frame = new Contents();
         frame.setTitle(Constants.DISPLAY_NAME_FRAME_TITLE);
@@ -21,6 +27,10 @@ public class Contents extends JFrame implements ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * コンテンツ
+     * 各画面のパネルの初期設定を実施する。
+     */
     public Contents() {
         //タイトル画面カード
         TitleScreenPanel cardTitleScreen = new TitleScreenPanel(this);
@@ -61,6 +71,12 @@ public class Contents extends JFrame implements ActionListener {
         getContentPane().add(cardPanel, BorderLayout.CENTER);
     }
 
+    /**
+     * ボタン入力判定
+     * ボタン押下時、ボタンに設定された名前を取得し、それぞれの対応を実行する。
+     *
+     * @param e 入力されたボタンの名前
+     */
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
         if (cmd.equals(Constants.CARD_GAME_SCREEN)) {
@@ -116,6 +132,12 @@ public class Contents extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * 正解設定メソッド
+     * ゲーム内での正解の数値を設定する。
+     *
+     * @return 正解の数値を返す
+     */
     public static int[] correctAnswerNumber() {
         //正解の数値用の配列、3つの1桁数字を格納する。
         int[] correct = new int[Constants.CONSTANT_DIGIT_NUMBER];
@@ -134,6 +156,14 @@ public class Contents extends JFrame implements ActionListener {
         return correct;
     }
 
+    /**
+     * 判定メソッド
+     * 入力された数値と正解の数値を比較し、一致しているか処理を行い、入力履歴に格納する。
+     *
+     * @param tryTimes     現在が何回目の入力か
+     * @param answer       正解の数値
+     * @return tryTimesの数値を返す
+     */
     public int judge(int tryTimes, int[] answer) {
         if (GameScreenPanel.labelThreeDigits.getText().equals(Constants.DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT)){
             //3桁目まで数字が入力されているか確認
@@ -207,6 +237,14 @@ public class Contents extends JFrame implements ActionListener {
         return tryTimes;
     }
 
+    /**
+     * ヒットブロー計算メソッド
+     * 入力された数値と正解の数値を比較し、ヒットとブローの数を配列に格納する。
+     *
+     * @param inputArray 入力された数値の配列
+     * @param answer     正解の数値
+     * @return ヒット数とブロー数を返す
+     */
     public static int[] getHitBlow(int[] inputArray, int[] answer) {
         //ヒットのカウンタ初期化
         int hitCounter = Constants.CONSTANT_HIT_COUNT_FORMAT;

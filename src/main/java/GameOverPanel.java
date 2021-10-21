@@ -7,6 +7,12 @@ public class GameOverPanel extends Container {
     static JLabel labelResult;
     private final JButton buttonBackToTitle;
 
+    /**
+     * ゲームオーバーパネルメソッド
+     * ゲームオーバー時の画面を設定する。
+     *
+     * @param actionListener パネル内でのアクションを判定
+     */
     public GameOverPanel(ActionListener actionListener) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -26,17 +32,29 @@ public class GameOverPanel extends Container {
         this.add(Box.createGlue());
     }
 
+    /**
+     * ゲームオーバーパネル フォント設定メソッド
+     * ゲームオーバーパネル内で使用されるボタンやラベルのフォントを設定する。
+     */
     private void setFontInGameOverPanel() {
         labelResult.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 30));
         buttonBackToTitle.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 30));
     }
 
+    /**
+     * ゲームオーバーパネル 配置場所設定メソッド
+     * ゲームオーバーパネル内で使用されるボタンやラベルの配置場所を設定する。
+     */
     private void setAlignmentInGameOverPanel() {
         labelResult.setAlignmentX(CENTER_ALIGNMENT);
         labelResult.setHorizontalAlignment(JLabel.CENTER);
         buttonBackToTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
+    /**
+     * ゲームオーバーパネル アクション設定メソッド
+     * ゲームオーバーパネル内で使用されるボタンの押下時の判定を設定する。
+     */
     private void setActionInGameOverPanel(ActionListener actionListener) {
         buttonBackToTitle.addActionListener(actionListener);
         buttonBackToTitle.setActionCommand(Constants.CARD_TITLE_SCREEN);

@@ -39,6 +39,12 @@ public class GameScreenPanel extends JPanel {
     private final JLabel labelInputSpaceRight;
     private final JLabel labelInputSpaceCenter;
 
+    /**
+     * ゲーム画面パネルメソッド
+     * ゲーム時の画面を設定する。
+     *
+     * @param actionListener パネル内でのアクションを判定
+     */
     public GameScreenPanel(ActionListener actionListener) {
         GridBagLayout gbLayout = new GridBagLayout();
         this.setLayout(gbLayout);
@@ -135,6 +141,10 @@ public class GameScreenPanel extends JPanel {
         this.add(labelInputSpaceCenter);
     }
 
+    /**
+     * ゲーム画面パネル フォント設定メソッド
+     * ゲーム画面パネル内で使用されるボタンやラベルのフォントを設定する。
+     */
     private void setFontInGameScreenPanel() {
         labelOneDigits.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_DISPLAY_NUMBER));
         labelTwoDigits.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_DISPLAY_NUMBER));
@@ -169,6 +179,10 @@ public class GameScreenPanel extends JPanel {
         labelErrorMessage.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_ERROR_MESSAGE));
     }
 
+    /**
+     * ゲーム画面パネル サイズ設定メソッド
+     * ゲーム画面パネル内で使用されるボタンやラベルのサイズを設定する。
+     */
     private void buttonSettingsInGameScreenPanel() {
         buttonOne.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
         buttonTwo.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
@@ -185,6 +199,10 @@ public class GameScreenPanel extends JPanel {
         buttonGiveUp.setPreferredSize(new Dimension(Constants.SIZE_NUMBER_BUTTON_WIDTH, Constants.SIZE_NUMBER_BUTTON_HEIGHT));
     }
 
+    /**
+     * ゲーム画面パネル 配置場所設定メソッド
+     * ゲーム画面パネル内で使用されるボタンやラベルの配置場所を設定する。
+     */
     private void setPositionInGameScreenPanel(GridBagConstraints positionPreference, GridBagLayout gbLayout) {
         positionPreference.gridx = 3;
         positionPreference.gridy = 2;
@@ -337,6 +355,10 @@ public class GameScreenPanel extends JPanel {
         gbLayout.setConstraints(labelInputSpaceCenter, positionPreference);
     }
 
+    /**
+     * ゲーム画面パネル アクション設定メソッド
+     * ゲーム画面パネル内で使用されるボタンの押下時の判定を設定する。
+     */
     private void setActionInSettingsInGameScreenPanel(ActionListener actionListener) {
         buttonOne.addActionListener(actionListener);
         buttonOne.setActionCommand(Constants.DISPLAY_BUTTON_ONE);

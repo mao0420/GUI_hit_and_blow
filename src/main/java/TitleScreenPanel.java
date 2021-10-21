@@ -9,6 +9,12 @@ public class TitleScreenPanel extends JPanel {
     private final JButton buttonRuleDescription;
     private final JButton buttonGameEnd;
 
+    /**
+     * タイトル画面パネルメソッド
+     * タイトル時の画面を設定する。
+     *
+     * @param actionListener パネル内でのアクションを判定
+     */
     public TitleScreenPanel(ActionListener actionListener) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         labelTitle = new JLabel(Constants.DISPLAY_TEXT_TITLE);
@@ -24,22 +30,6 @@ public class TitleScreenPanel extends JPanel {
         buttonSettingsInTitleScreenPanel();
         setAlignmentInTitleScreenPanel();
         setActionInTitleScreenPanel(actionListener);
-
-//        //ゲームクリア画面デバッグ用
-//        JButton buttonTitleScreenGameClear = new JButton(Constants.DISPLAY_BUTTON_GAME_CLEAR);
-//        buttonTitleScreenGameClear.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-//        buttonTitleScreenGameClear.setPreferredSize(new Dimension(300, 50));
-//        buttonTitleScreenGameClear.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        buttonTitleScreenGameClear.addActionListener(actionListener);
-//        buttonTitleScreenGameClear.setActionCommand(Constants.CARD_GAME_CLEAR);
-//
-//        //ゲームオーバー画面デバッグ用
-//        JButton buttonTitleScreenGameOver = new JButton(Constants.DISPLAY_BUTTON_GAME_OVER);
-//        buttonTitleScreenGameOver.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
-//        buttonTitleScreenGameOver.setPreferredSize(new Dimension(300, 50));
-//        buttonTitleScreenGameOver.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        buttonTitleScreenGameOver.addActionListener(actionListener);
-//        buttonTitleScreenGameOver.setActionCommand(Constants.CARD_GAME_OVER);
 
         this.add(Box.createGlue());
         this.add(labelTitle);
@@ -57,6 +47,10 @@ public class TitleScreenPanel extends JPanel {
 //        this.add(buttonTitleScreenGameOver);
     }
 
+    /**
+     * タイトル画面パネル フォント設定メソッド
+     * タイトル画面パネル内で使用されるボタンやラベルのフォントを設定する。
+     */
     private void setFontInTitleScreenPanel() {
         labelTitle.setFont(new Font(Font.DIALOG_INPUT, Font.PLAIN, 100));
         buttonGameStart.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
@@ -64,12 +58,20 @@ public class TitleScreenPanel extends JPanel {
         buttonGameEnd.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, 20));
     }
 
+    /**
+     * タイトル画面パネル サイズ設定メソッド
+     * タイトル画面パネル内で使用されるボタンやラベルのサイズを設定する。
+     */
     private void buttonSettingsInTitleScreenPanel() {
         buttonGameStart.setPreferredSize(new Dimension(300, 50));
         buttonRuleDescription.setPreferredSize(new Dimension(400, 50));
         buttonGameEnd.setPreferredSize(new Dimension(400, 50));
     }
 
+    /**
+     * タイトル画面パネル 配置場所設定メソッド
+     * タイトル画面パネル内で使用されるボタンやラベルの配置場所を設定する。
+     */
     private void setAlignmentInTitleScreenPanel() {
         labelTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         buttonGameStart.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -77,6 +79,10 @@ public class TitleScreenPanel extends JPanel {
         buttonGameEnd.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
+    /**
+     * タイトル画面パネル アクション設定メソッド
+     * タイトル画面パネル内で使用されるボタンの押下時の判定を設定する。
+     */
     private void setActionInTitleScreenPanel(ActionListener actionListener) {
         buttonGameStart.addActionListener(actionListener);
         buttonGameStart.setActionCommand(Constants.CARD_GAME_SCREEN);
