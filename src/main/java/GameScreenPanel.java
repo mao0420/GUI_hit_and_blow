@@ -185,17 +185,48 @@ public class GameScreenPanel extends JPanel {
      * ゲーム画面パネル内で使用されるボタンやラベルの配置場所を設定する。
      */
     private void setPositionInGameScreenPanel(GridBagConstraints positionPreference, GridBagLayout gbLayout) {
-        positionPreference.gridx = 3;
-        positionPreference.gridy = 2;
-        gbLayout.setConstraints(labelOneDigits, positionPreference);
+        JLabel[] labelDigits = {labelOneDigits, labelTwoDigits, labelThreeDigits};
+        int labelDigitGridX = 3;
+        int labelDigitGridY = 2;
+        for (JLabel jLabel : labelDigits) {
+            positionPreference.gridx = labelDigitGridX;
+            positionPreference.gridy = labelDigitGridY;
+            gbLayout.setConstraints(jLabel, positionPreference);
+            labelDigitGridX++;
+        }
 
-        positionPreference.gridx = 4;
-        positionPreference.gridy = 2;
-        gbLayout.setConstraints(labelTwoDigits, positionPreference);
+        JLabel[] labelInputHistoryNumbers = {labelInputHistoryNumberOne, labelInputHistoryNumberTwo, labelInputHistoryNumberThree,
+                labelInputHistoryNumberFour, labelInputHistoryNumberFive, labelInputHistoryNumberSix,
+                labelInputHistoryNumberSeven, labelInputHistoryNumberEight, labelInputHistoryNumberNine,
+        };
+        int labelInputHistoryGridX = 1;
+        int labelInputHistoryGridY = 3;
+        for (JLabel jLabel : labelInputHistoryNumbers) {
+            positionPreference.gridx = labelInputHistoryGridX;
+            positionPreference.gridy = labelInputHistoryGridY;
+            positionPreference.insets = new Insets(3, 3, 3, 3);
+            gbLayout.setConstraints(jLabel, positionPreference);
+            labelInputHistoryGridY++;
+            if (labelInputHistoryGridY == 8) {
+                labelInputHistoryGridX = 7;
+                labelInputHistoryGridY = 3;
+            }
+        }
 
-        positionPreference.gridx = 5;
-        positionPreference.gridy = 2;
-        gbLayout.setConstraints(labelThreeDigits, positionPreference);
+        JButton[] buttons = {buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven,
+                buttonEight, buttonNine, buttonReset, buttonZero, buttonConfirm};
+        int buttonNumberGridX = 3;
+        int buttonNumberGridY = 9;
+        for (JButton jButton : buttons) {
+            positionPreference.gridx = buttonNumberGridX;
+            positionPreference.gridy = buttonNumberGridY;
+            gbLayout.setConstraints(jButton, positionPreference);
+            buttonNumberGridX++;
+            if (buttonNumberGridX == 6) {
+                buttonNumberGridX = 3;
+                buttonNumberGridY++;
+            }
+        }
 
         positionPreference.gridx = 1;
         positionPreference.gridy = 1;
@@ -214,99 +245,6 @@ public class GameScreenPanel extends JPanel {
         positionPreference.gridy = 2;
         positionPreference.insets = new Insets(3, 3, 3, 25);
         gbLayout.setConstraints(labelInputHistoryDescriptionRight, positionPreference);
-
-        positionPreference.gridx = 1;
-        positionPreference.gridy = 3;
-        positionPreference.insets = new Insets(3, 3, 3, 3);
-        gbLayout.setConstraints(labelInputHistoryNumberOne, positionPreference);
-
-        positionPreference.gridx = 1;
-        positionPreference.gridy = 4;
-        positionPreference.insets = new Insets(3, 3, 3, 3);
-        gbLayout.setConstraints(labelInputHistoryNumberTwo, positionPreference);
-
-        positionPreference.gridx = 1;
-        positionPreference.gridy = 5;
-        positionPreference.insets = new Insets(3, 3, 3, 3);
-        gbLayout.setConstraints(labelInputHistoryNumberThree, positionPreference);
-
-        positionPreference.gridx = 1;
-        positionPreference.gridy = 6;
-        positionPreference.insets = new Insets(3, 3, 3, 3);
-        gbLayout.setConstraints(labelInputHistoryNumberFour, positionPreference);
-
-        positionPreference.gridx = 1;
-        positionPreference.gridy = 7;
-        positionPreference.insets = new Insets(3, 3, 3, 3);
-        gbLayout.setConstraints(labelInputHistoryNumberFive, positionPreference);
-
-        positionPreference.gridx = 7;
-        positionPreference.gridy = 3;
-        positionPreference.insets = new Insets(3, 3, 3, 3);
-        gbLayout.setConstraints(labelInputHistoryNumberSix, positionPreference);
-
-        positionPreference.gridx = 7;
-        positionPreference.gridy = 4;
-        positionPreference.insets = new Insets(3, 3, 3, 3);
-        gbLayout.setConstraints(labelInputHistoryNumberSeven, positionPreference);
-
-        positionPreference.gridx = 7;
-        positionPreference.gridy = 5;
-        positionPreference.insets = new Insets(3, 3, 3, 3);
-        gbLayout.setConstraints(labelInputHistoryNumberEight, positionPreference);
-
-        positionPreference.gridx = 7;
-        positionPreference.gridy = 6;
-        positionPreference.insets = new Insets(3, 3, 3, 3);
-        gbLayout.setConstraints(labelInputHistoryNumberNine, positionPreference);
-
-        positionPreference.gridx = 3;
-        positionPreference.gridy = 9;
-        gbLayout.setConstraints(buttonOne, positionPreference);
-
-        positionPreference.gridx = 4;
-        positionPreference.gridy = 9;
-        gbLayout.setConstraints(buttonTwo, positionPreference);
-
-        positionPreference.gridx = 5;
-        positionPreference.gridy = 9;
-        gbLayout.setConstraints(buttonThree, positionPreference);
-
-        positionPreference.gridx = 3;
-        positionPreference.gridy = 10;
-        gbLayout.setConstraints(buttonFour, positionPreference);
-
-        positionPreference.gridx = 4;
-        positionPreference.gridy = 10;
-        gbLayout.setConstraints(buttonFive, positionPreference);
-
-        positionPreference.gridx = 5;
-        positionPreference.gridy = 10;
-        gbLayout.setConstraints(buttonSix, positionPreference);
-
-        positionPreference.gridx = 3;
-        positionPreference.gridy = 11;
-        gbLayout.setConstraints(buttonSeven, positionPreference);
-
-        positionPreference.gridx = 4;
-        positionPreference.gridy = 11;
-        gbLayout.setConstraints(buttonEight, positionPreference);
-
-        positionPreference.gridx = 5;
-        positionPreference.gridy = 11;
-        gbLayout.setConstraints(buttonNine, positionPreference);
-
-        positionPreference.gridx = 3;
-        positionPreference.gridy = 12;
-        gbLayout.setConstraints(buttonReset, positionPreference);
-
-        positionPreference.gridx = 4;
-        positionPreference.gridy = 12;
-        gbLayout.setConstraints(buttonZero, positionPreference);
-
-        positionPreference.gridx = 5;
-        positionPreference.gridy = 12;
-        gbLayout.setConstraints(buttonConfirm, positionPreference);
 
         positionPreference.gridx = 1;
         positionPreference.gridy = 12;
