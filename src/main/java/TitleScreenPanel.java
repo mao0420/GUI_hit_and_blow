@@ -5,9 +5,11 @@ import java.awt.event.ActionListener;
 public class TitleScreenPanel extends JPanel {
 
     private final JLabel labelTitle;
-    private final JButton buttonGameStart;
-    private final JButton buttonRuleDescription;
-    private final JButton buttonGameEnd;
+    private JButton buttonGameStart;
+    private JButton buttonRuleDescription;
+    private JButton buttonGameEnd;
+
+    JButton[] buttons = {buttonGameStart, buttonRuleDescription, buttonGameEnd};
 
     /**
      * タイトル画面パネルコンストラクタ

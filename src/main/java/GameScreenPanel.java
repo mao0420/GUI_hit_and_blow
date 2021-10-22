@@ -7,10 +7,10 @@ public class GameScreenPanel extends JPanel {
     static JLabel labelOneDigits;
     static JLabel labelTwoDigits;
     static JLabel labelThreeDigits;
-    private final JLabel labelInputHistoryMessageLeft;
-    private final JLabel labelInputHistoryMessageRight;
-    private final JLabel labelInputHistoryDescriptionLeft;
-    private final JLabel labelInputHistoryDescriptionRight;
+    static JLabel labelInputHistoryMessageLeft;
+    static JLabel labelInputHistoryMessageRight;
+    static JLabel labelInputHistoryDescriptionLeft;
+    static JLabel labelInputHistoryDescriptionRight;
     static JLabel labelInputHistoryNumberOne;
     static JLabel labelInputHistoryNumberTwo;
     static JLabel labelInputHistoryNumberThree;
@@ -30,14 +30,14 @@ public class GameScreenPanel extends JPanel {
     static JButton buttonEight;
     static JButton buttonNine;
     static JButton buttonZero;
-    private final JButton buttonReset;
-    private final JButton buttonConfirm;
-    private final JButton buttonGiveUp;
+    static JButton buttonReset;
+    static JButton buttonConfirm;
+    static JButton buttonGiveUp;
     static JLabel labelInputTimes;
     static JLabel labelErrorMessage;
-    private final JLabel labelInputSpaceLeft;
-    private final JLabel labelInputSpaceRight;
-    private final JLabel labelInputSpaceCenter;
+    static JLabel labelInputSpaceLeft;
+    static JLabel labelInputSpaceRight;
+    static JLabel labelInputSpaceCenter;
 
     /**
      * ゲーム画面パネルコンストラクタ
@@ -109,40 +109,21 @@ public class GameScreenPanel extends JPanel {
         //アクション設定メソッドへ
         setActionInSettingsInGameScreenPanel(actionListener);
 
-        this.add(labelOneDigits);
-        this.add(labelTwoDigits);
-        this.add(labelThreeDigits);
-        this.add(labelInputHistoryMessageLeft);
-        this.add(labelInputHistoryMessageRight);
-        this.add(labelInputHistoryDescriptionLeft);
-        this.add(labelInputHistoryDescriptionRight);
-        this.add(labelInputHistoryNumberOne);
-        this.add(labelInputHistoryNumberTwo);
-        this.add(labelInputHistoryNumberThree);
-        this.add(labelInputHistoryNumberFour);
-        this.add(labelInputHistoryNumberFive);
-        this.add(labelInputHistoryNumberSix);
-        this.add(labelInputHistoryNumberSeven);
-        this.add(labelInputHistoryNumberEight);
-        this.add(labelInputHistoryNumberNine);
-        this.add(buttonOne);
-        this.add(buttonTwo);
-        this.add(buttonThree);
-        this.add(buttonFour);
-        this.add(buttonFive);
-        this.add(buttonSix);
-        this.add(buttonSeven);
-        this.add(buttonEight);
-        this.add(buttonNine);
-        this.add(buttonZero);
-        this.add(buttonReset);
-        this.add(buttonConfirm);
-        this.add(buttonGiveUp);
-        this.add(labelInputTimes);
-        this.add(labelErrorMessage);
-        this.add(labelInputSpaceLeft);
-        this.add(labelInputSpaceRight);
-        this.add(labelInputSpaceCenter);
+        JLabel[] labels = {labelOneDigits, labelTwoDigits, labelThreeDigits, labelInputHistoryMessageLeft,
+                labelInputHistoryMessageRight, labelInputHistoryDescriptionLeft, labelInputHistoryDescriptionRight,
+                labelInputHistoryNumberOne, labelInputHistoryNumberTwo, labelInputHistoryNumberThree,
+                labelInputHistoryNumberFour, labelInputHistoryNumberFive, labelInputHistoryNumberSix,
+                labelInputHistoryNumberSeven, labelInputHistoryNumberEight, labelInputHistoryNumberNine,
+                labelInputTimes, labelErrorMessage, labelInputSpaceLeft, labelInputSpaceRight, labelInputSpaceCenter};
+        JButton[] buttons = {buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven,
+                buttonEight, buttonNine, buttonZero, buttonReset, buttonConfirm, buttonGiveUp};
+
+        for (JLabel label : labels) {
+            this.add(label);
+        }
+        for (JButton button : buttons) {
+            this.add(button);
+        }
     }
 
     /**
