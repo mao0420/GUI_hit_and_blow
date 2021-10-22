@@ -28,10 +28,11 @@ public class GameOverPanel extends Container {
         //アクション設定メソッドへ
         setActionInGameOverPanel(actionListener);
 
-        this.add(Box.createGlue());
-        this.add(labelResult);
-        this.add(Box.createGlue());
-        this.add(buttonBackToTitle);
+        JComponent[] jComponents = {labelResult, buttonBackToTitle};
+        for (JComponent jComponent : jComponents) {
+            this.add(Box.createGlue());
+            this.add(jComponent);
+        }
         this.add(Box.createGlue());
     }
 

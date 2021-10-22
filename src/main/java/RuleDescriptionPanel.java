@@ -28,10 +28,11 @@ public class RuleDescriptionPanel extends Container {
         //アクション設定メソッドへ
         setActionInRuleDescriptionPanel(actionListener);
 
-        this.add(Box.createGlue());
-        this.add(labelRule);
-        this.add(Box.createGlue());
-        this.add(buttonBack);
+        JComponent[] jComponents = {labelRule, buttonBack};
+        for (JComponent jComponent : jComponents) {
+            this.add(Box.createGlue());
+            this.add(jComponent);
+        }
         this.add(Box.createGlue());
     }
 

@@ -35,15 +35,11 @@ public class TitleScreenPanel extends JPanel {
         //アクション設定メソッドへ
         setActionInTitleScreenPanel(actionListener);
 
-        this.add(Box.createGlue());
-        this.add(labelTitle);
-        this.add(Box.createGlue());
-        this.add(Box.createGlue());
-        this.add(buttonGameStart);
-        this.add(Box.createGlue());
-        this.add(buttonRuleDescription);
-        this.add(Box.createGlue());
-        this.add(buttonGameEnd);
+        JComponent[] jComponents = {labelTitle, buttonGameStart, buttonRuleDescription, buttonGameEnd};
+        for (JComponent jComponent : jComponents) {
+            this.add(Box.createGlue());
+            this.add(jComponent);
+        }
         this.add(Box.createGlue());
     }
 

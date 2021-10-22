@@ -109,20 +109,16 @@ public class GameScreenPanel extends JPanel {
         //アクション設定メソッドへ
         setActionInSettingsInGameScreenPanel(actionListener);
 
-        JLabel[] labels = {labelOneDigits, labelTwoDigits, labelThreeDigits, labelInputHistoryMessageLeft,
+        JComponent[] jComponents = {labelOneDigits, labelTwoDigits, labelThreeDigits, labelInputHistoryMessageLeft,
                 labelInputHistoryMessageRight, labelInputHistoryDescriptionLeft, labelInputHistoryDescriptionRight,
                 labelInputHistoryNumberOne, labelInputHistoryNumberTwo, labelInputHistoryNumberThree,
                 labelInputHistoryNumberFour, labelInputHistoryNumberFive, labelInputHistoryNumberSix,
                 labelInputHistoryNumberSeven, labelInputHistoryNumberEight, labelInputHistoryNumberNine,
-                labelInputTimes, labelErrorMessage, labelInputSpaceLeft, labelInputSpaceRight, labelInputSpaceCenter};
-        JButton[] buttons = {buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven,
-                buttonEight, buttonNine, buttonZero, buttonReset, buttonConfirm, buttonGiveUp};
-
-        for (JLabel label : labels) {
-            this.add(label);
-        }
-        for (JButton button : buttons) {
-            this.add(button);
+                labelInputTimes, labelErrorMessage, labelInputSpaceLeft, labelInputSpaceRight, labelInputSpaceCenter,
+                buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven, buttonEight,
+                buttonNine, buttonZero, buttonReset, buttonConfirm, buttonGiveUp};
+        for (JComponent jComponent : jComponents) {
+            this.add(jComponent);
         }
     }
 
