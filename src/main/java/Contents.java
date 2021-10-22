@@ -209,24 +209,16 @@ public class Contents extends JFrame implements ActionListener {
         //履歴格納用に一時保存
         String inputHistory = String.format(Constants.DISPLAY_TEXT_INPUT_HISTORY_NUMBER, Arrays.toString(inputArray), hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER], hitBlowCounter[Constants.CONSTANT_ARRAY_BLOW_COUNTER]);
         //何回目の入力かを判断
-        if (1 == tryTimes) {
-            GameScreenPanel.labelInputHistoryNumberOne.setText(inputHistory);
-        } else if (2 == tryTimes) {
-            GameScreenPanel.labelInputHistoryNumberTwo.setText(inputHistory);
-        } else if (3 == tryTimes) {
-            GameScreenPanel.labelInputHistoryNumberThree.setText(inputHistory);
-        } else if (4 == tryTimes) {
-            GameScreenPanel.labelInputHistoryNumberFour.setText(inputHistory);
-        } else if (5 == tryTimes) {
-            GameScreenPanel.labelInputHistoryNumberFive.setText(inputHistory);
-        } else if (6 == tryTimes) {
-            GameScreenPanel.labelInputHistoryNumberSix.setText(inputHistory);
-        } else if (7 == tryTimes) {
-            GameScreenPanel.labelInputHistoryNumberSeven.setText(inputHistory);
-        } else if (8 == tryTimes) {
-            GameScreenPanel.labelInputHistoryNumberEight.setText(inputHistory);
-        } else if (9 == tryTimes) {
-            GameScreenPanel.labelInputHistoryNumberNine.setText(inputHistory);
+        switch (tryTimes) {
+            case 1 -> GameScreenPanel.labelInputHistoryNumberOne.setText(inputHistory);
+            case 2 -> GameScreenPanel.labelInputHistoryNumberTwo.setText(inputHistory);
+            case 3 -> GameScreenPanel.labelInputHistoryNumberThree.setText(inputHistory);
+            case 4 -> GameScreenPanel.labelInputHistoryNumberFour.setText(inputHistory);
+            case 5 -> GameScreenPanel.labelInputHistoryNumberFive.setText(inputHistory);
+            case 6 -> GameScreenPanel.labelInputHistoryNumberSix.setText(inputHistory);
+            case 7 -> GameScreenPanel.labelInputHistoryNumberSeven.setText(inputHistory);
+            case 8 -> GameScreenPanel.labelInputHistoryNumberEight.setText(inputHistory);
+            case 9 -> GameScreenPanel.labelInputHistoryNumberNine.setText(inputHistory);
         }
         //入力内容初期化メソッドへ
         inputDigitsInitializing();
