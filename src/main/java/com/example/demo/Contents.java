@@ -1,16 +1,32 @@
+package com.example.demo;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.URI;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
 
 public class Contents extends JFrame implements ActionListener {
     JPanel cardPanel;
     CardLayout layout;
 
-    //試行回数のカウンタ―を初期化
+    //試行回数のカウンタを初期化
     static int tryTimes = Constants.CONSTANT_TRY_TIMES_COUNT_FORMAT;
     //正解の数字を初期化
     static int[] answer = new int[Constants.CONSTANT_DIGIT_NUMBER];
+    //ユーザ名を初期化
+    static String userName = "NoName";
+    //ゲーム開始時間を初期化
+    static Date startDate = new Date();
+    //ゲーム終了時間を初期化
+    static Date endDate = new Date();
 
     /**
      * メインメソッド
@@ -63,6 +79,16 @@ public class Contents extends JFrame implements ActionListener {
         Container contentPane05 = getContentPane();
         contentPane05.add(cardGameOver, BorderLayout.CENTER);
 
+        //ユーザ名入力画面カード
+        NameEntryPanel cardNameEntry = new NameEntryPanel(this);
+        Container contentPane06 = getContentPane();
+        contentPane06.add(cardNameEntry, BorderLayout.CENTER);
+
+        //ランキング画面カード
+        RankingPanel cardRanking = new RankingPanel(this);
+        Container contentPane07 = getContentPane();
+        contentPane07.add(cardRanking, BorderLayout.CENTER);
+
         //カード設定
         cardPanel = new JPanel();
         layout = new CardLayout();
@@ -74,6 +100,8 @@ public class Contents extends JFrame implements ActionListener {
         cardPanel.add(cardRuleDescription, Constants.CARD_RULE_DESCRIPTION);
         cardPanel.add(cardGameClear, Constants.CARD_GAME_CLEAR);
         cardPanel.add(cardGameOver, Constants.CARD_GAME_OVER);
+        cardPanel.add(cardNameEntry, Constants.CARD_NAME_ENTRY);
+        cardPanel.add(cardRanking, Constants.CARD_RANKING);
 
         //カードを表示
         getContentPane().add(cardPanel, BorderLayout.CENTER);
@@ -99,12 +127,38 @@ public class Contents extends JFrame implements ActionListener {
             inputDigitsInitializing();
             //入力履歴初期化メソッドへ
             inputHistoryNumberInitializing();
+            startDate = new Date();
             GameScreenPanel.labelErrorMessage.setText(Constants.DISPLAY_TEXT_INPUT_SPACE);
         } else if (Constants.CARD_GAME_OVER.matches(cmd)) {
             //ギブアップボタンクリック時
             layout.show(cardPanel, Constants.CARD_GAME_OVER);
             String setGameOverResult = String.format(Constants.DISPLAY_TEXT_GAME_OVER_RESULT, Arrays.toString(answer));
             GameOverPanel.labelResult.setText(setGameOverResult);
+        } else if (Constants.CARD_NAME_ENTRY.matches(cmd)) {
+            //名前変更ボタンクリック時
+            layout.show(cardPanel, Constants.CARD_NAME_ENTRY);
+            String setNameEntry = String.format(Constants.DISPLAY_TEXT_NAME_ENTRY, userName);
+            NameEntryPanel.labelNameEntry.setText(setNameEntry);
+        } else if (Constants.CARD_RANKING.matches(cmd)) {
+            //ブラウザの起動、ランキング画面を開きます
+            String uriString = "http://localhost:8080/";
+            Desktop desktop = Desktop.getDesktop();
+            try{
+                URI uri = new URI( uriString );
+                desktop.browse( uri );
+            }catch( Exception f ){
+                f.printStackTrace();
+            }
+//            //臨時デバッグ、INSERT処理の確認用
+//            int[] h = new int[3];
+//            h[1] = 1;
+//            h[2] = 2;
+//            answer = h;
+//            startDate = new Date();
+//            GameScreenPanel.labelOneDigits.setText(Constants.DISPLAY_BUTTON_ZERO);
+//            GameScreenPanel.labelTwoDigits.setText(Constants.DISPLAY_BUTTON_ONE);
+//            GameScreenPanel.labelThreeDigits.setText(Constants.DISPLAY_BUTTON_TWO);
+//            judge(9, h);
         } else if (cmd.matches("^Card.*")) {
             //その他画面遷移用ボタンクリック時
             layout.show(cardPanel, cmd);
@@ -124,6 +178,12 @@ public class Contents extends JFrame implements ActionListener {
         } else if (Constants.DISPLAY_BUTTON_CONFIRM.equals(cmd)) {
             //ゲーム画面にて確定ボタンクリック時
             tryTimes = judge(tryTimes, answer);
+        } else if (Constants.DISPLAY_BUTTON_NAME_ENTRY_RESET.equals(cmd)) {
+            //名前変更画面にてリセットボタンクリック時
+            NameEntryPanel.textFieldNameInput.setText("");
+        } else if (Constants.DISPLAY_BUTTON_NAME_ENTRY_CONFIRM.equals(cmd)) {
+            //名前変更画面にて確定ボタンクリック時
+            nameEntryJudge();
         } else if (Constants.BUTTON_GAME_END.equals(cmd)) {
             //タイトル画面にてゲーム終了ボタンクリック時
             Component c = (Component) e.getSource();
@@ -194,10 +254,17 @@ public class Contents extends JFrame implements ActionListener {
         //ヒットブロー計算メソッドへ
         int[] hitBlowCounter = getHitBlow(inputArray, answer);
         if (Constants.CONSTANT_HIT_ANSWER_NUMBER == hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER]) {
-            //hitが3桁全てである場合はゲームクリアとする。
+            //hitが3桁全てである場合はゲームクリアとする
             layout.show(cardPanel, Constants.CARD_GAME_CLEAR);
+            endDate = new Date();
             String setGameClearResult = String.format(Constants.DISPLAY_TEXT_GAME_CLEAR_RESULT, Arrays.toString(answer), tryTimes);
             GameClearPanel.labelResult.setText(setGameClearResult);
+            //データ登録メソッドへ
+            dataInsert();
+//            //JdbcTemplateInsertクラスをインスタンス化
+//            JdbcTemplateInsert insertData = new JdbcTemplateInsert(new JdbcTemplate());
+//            //SQLのクエリ処理を呼び出し
+//            insertData.insertAllData(clearDataList);
             return tryTimes;
         } else if (Constants.CONSTANT_GAME_OVER_LIMIT == tryTimes) {
             //試行回数が10回目でゲームクリアに到達できない場合はゲームオーバーとする。
@@ -265,6 +332,27 @@ public class Contents extends JFrame implements ActionListener {
     }
 
     /**
+     * 名前入力判定メソッド
+     * 入力された名前に不備が無いか確認を行う。
+     */
+    public void nameEntryJudge() {
+        String entryName = NameEntryPanel.textFieldNameInput.getText().trim();
+        //入力された名前を一時格納
+        if (entryName.length() >= 11) {
+            //入力された文字が10文字以内か判定
+            return;
+        }
+        if (entryName.length() == 0) {
+            //入力された文字が0文字の場合
+            entryName = "NoName";
+        }
+        userName = entryName;
+        TitleScreenPanel.labelUserName.setText(String.format(Constants.DISPLAY_TEXT_USER_NAME, userName));
+        NameEntryPanel.labelNameEntry.setText(String.format(Constants.DISPLAY_TEXT_NAME_ENTRY, userName));
+        NameEntryPanel.textFieldNameInput.setText("");
+    }
+
+    /**
      * 入力内容初期化メソッド
      * ゲーム画面で入力された内容を初期状態へ変更する。
      */
@@ -288,5 +376,52 @@ public class Contents extends JFrame implements ActionListener {
         GameScreenPanel.labelInputHistoryNumberSeven.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
         GameScreenPanel.labelInputHistoryNumberEight.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
         GameScreenPanel.labelInputHistoryNumberNine.setText(Constants.DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT);
+    }
+
+    /**
+     * データ挿入メソッド
+     * データベースへ接続を行いゲームクリア時のデータを挿入する。
+     */
+    public static void dataInsert() {
+        //データベース接続情報を記載
+        final String URL = "jdbc:oracle:thin:@localhost:1522:handb";
+        final String USER = "sys as sysdba";
+        final String PASS = "Databasetest0420";
+        //データ挿入時のSQL文を記載、?はステークホルダでありクリアデータが代入される
+        final String SQL = "INSERT INTO record_data (user_name, try_times, start_Date, end_date) VALUES(?,?,?,?)";
+
+        try(Connection conn = DriverManager.getConnection(URL, USER, PASS)){
+            //自動コミットを行わずに、トランザクション(仮登録)を開始する
+            conn.setAutoCommit(false);
+
+            try(PreparedStatement ps = conn.prepareStatement(SQL)){
+                //java.util.Date型をjava.sql.Timestamp型に変更する
+                long startDateMilliSeconds = startDate.getTime();
+                java.sql.Timestamp sqlStartTimestamp = new java.sql.Timestamp(startDateMilliSeconds);
+                long endDateMilliSeconds = endDate.getTime();
+                java.sql.Timestamp sqlEndTimestamp = new java.sql.Timestamp(endDateMilliSeconds);
+                //クエリのステークホルダに格納するデータを記載
+                ps.setObject(1, userName);
+                ps.setObject(2, tryTimes + 1);
+                ps.setTimestamp(3, sqlStartTimestamp);
+                ps.setTimestamp(4, sqlEndTimestamp);
+                //セットした内容を元にデータの挿入を行う
+                ps.executeUpdate();
+                //トランザクションを完了し、コミット(本登録)を行う
+                conn.commit();
+            } catch (Exception e) {
+                //データの挿入処理に失敗した場合に実行
+                //トランザクションを終了し、ロールバックでトランザクション前の状態に戻す
+                conn.rollback();
+                System.out.println("エラーが発生しました、ランキングへの登録は行われません。");
+                throw e;
+            }
+        } catch (Exception e) {
+            //読み込まれたメソッドと例外発生個所を表示
+            e.printStackTrace();
+        }finally {
+            //正常終了時も異常終了時もここを通る
+            System.out.println("完了");
+        }
     }
 }
